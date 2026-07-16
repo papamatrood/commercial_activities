@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Added the constraints for entity AppUser.
+    -->
+    <changeSet id="20260716212710-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="app_user"
+                                 constraintName="fk_app_user__user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="company_id"
+                                 baseTableName="app_user"
+                                 constraintName="fk_app_user__company_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="company"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="app_user_id"
+                                 baseTableName="rel_app_user__permission"
+                                 constraintName="fk_rel_app_user__permission__app_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_user"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="permission_id"
+                                 baseTableName="rel_app_user__permission"
+                                 constraintName="fk_rel_app_user__permission__permission_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="permission"
+                                 />
+    </changeSet>
+</databaseChangeLog>

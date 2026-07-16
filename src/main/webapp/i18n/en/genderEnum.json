@@ -1,0 +1,9 @@
+{
+  "commercialActivitiesApp": {
+    "GenderEnum": {
+      "null": "",
+      "MALE": "MALE",
+      "FEMALE": "FEMALE"
+    }
+  }
+}

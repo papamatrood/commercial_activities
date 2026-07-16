@@ -1,0 +1,137 @@
+<div>
+  <h2 id="page-heading" data-cy="CompanySubscriptionHeading">
+    <span jhiTranslate="commercialActivitiesApp.companySubscription.home.title">CompanySubscriptions</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading()">
+        <fa-icon icon="sync" [animation]="isLoading() ? 'spin' : undefined" />
+        <span jhiTranslate="commercialActivitiesApp.companySubscription.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-company-subscription"
+        [routerLink]="['/company-subscription/new']"
+      >
+        <fa-icon icon="plus" />
+        <span jhiTranslate="commercialActivitiesApp.companySubscription.home.createLabel">Créer un nouveau Company Subscription</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error />
+
+  <jhi-alert />
+
+  @if (companySubscriptions().length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="commercialActivitiesApp.companySubscription.home.notFound">Aucun Company Subscription trouvé</span>
+    </div>
+  } @else {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(sortState)]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="type">
+              <div class="d-flex">
+                <span jhiTranslate="commercialActivitiesApp.companySubscription.type">Type</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="startDate">
+              <div class="d-flex">
+                <span jhiTranslate="commercialActivitiesApp.companySubscription.startDate">Start Date</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="endDate">
+              <div class="d-flex">
+                <span jhiTranslate="commercialActivitiesApp.companySubscription.endDate">End Date</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="status">
+              <div class="d-flex">
+                <span jhiTranslate="commercialActivitiesApp.companySubscription.status">Status</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="company.id">
+              <div class="d-flex">
+                <span jhiTranslate="commercialActivitiesApp.companySubscription.company">Company</span>
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (companySubscription of companySubscriptions(); track trackId(companySubscription)) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/company-subscription', companySubscription.id, 'view']">{{ companySubscription.id }}</a>
+              </td>
+              <td [jhiTranslate]="'commercialActivitiesApp.CompanySubscriptionTypeEnum.' + (companySubscription.type ?? 'null')">
+                {{
+                  { null: '', MONTHLY: 'MONTHLY', QUARTERLY: 'QUARTERLY', HALF_YEARLY: 'HALF_YEARLY', YEARLY: 'YEARLY' }[
+                    companySubscription.type ?? 'null'
+                  ]
+                }}
+              </td>
+              <td>{{ companySubscription.startDate | formatMediumDatetime }}</td>
+              <td>{{ companySubscription.endDate | formatMediumDatetime }}</td>
+              <td [jhiTranslate]="'commercialActivitiesApp.CompanySubscriptionStatusEnum.' + (companySubscription.status ?? 'null')">
+                {{ { null: '', ACTIVE: 'ACTIVE', EXPIRED: 'EXPIRED', CANCELLED: 'CANCELLED' }[companySubscription.status ?? 'null'] }}
+              </td>
+              <td>
+                @if (companySubscription.company) {
+                  <div>
+                    <a [routerLink]="['/company', companySubscription.company.id, 'view']">{{ companySubscription.company.id }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a
+                    [routerLink]="['/company-subscription', companySubscription.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+                  </a>
+
+                  <a
+                    [routerLink]="['/company-subscription', companySubscription.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(companySubscription)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

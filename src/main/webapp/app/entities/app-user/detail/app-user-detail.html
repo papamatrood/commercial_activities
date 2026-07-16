@@ -1,0 +1,83 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (appUser(); as appUserRef) {
+      <div>
+        <h2 data-cy="appUserDetailsHeading"><span jhiTranslate="commercialActivitiesApp.appUser.detail.title">App User</span></h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ appUserRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.appUser.phoneNumber">Phone Number</span></dt>
+          <dd>
+            <span>{{ appUserRef.phoneNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.appUser.type">Type</span></dt>
+          <dd>
+            <span [jhiTranslate]="'commercialActivitiesApp.AppUserTypeEnum.' + (appUserRef.type ?? 'null')">{{
+              { null: '', SUPER_ADMIN: 'SUPER_ADMIN', COMPANY_ADMIN: 'COMPANY_ADMIN', USER: 'USER' }[appUserRef.type ?? 'null']
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.appUser.birthDate">Birth Date</span></dt>
+          <dd>
+            <span>{{ appUserRef.birthDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.appUser.birthPlace">Birth Place</span></dt>
+          <dd>
+            <span>{{ appUserRef.birthPlace }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.appUser.gender">Gender</span></dt>
+          <dd>
+            <span [jhiTranslate]="'commercialActivitiesApp.GenderEnum.' + (appUserRef.gender ?? 'null')">{{
+              { null: '', MALE: 'MALE', FEMALE: 'FEMALE' }[appUserRef.gender ?? 'null']
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.appUser.disabled">Disabled</span></dt>
+          <dd>
+            <span>{{ appUserRef.disabled }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.appUser.disabledDate">Disabled Date</span></dt>
+          <dd>
+            <span>{{ appUserRef.disabledDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.appUser.user">User</span></dt>
+          <dd>
+            <span>{{ appUserRef.user?.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.appUser.company">Company</span></dt>
+          <dd>
+            @if (appUser()!.company) {
+              <div>
+                <a [routerLink]="['/company', appUser()!.company?.id, 'view']">{{ appUserRef.company?.id }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.appUser.permission">Permission</span></dt>
+          <dd>
+            @for (permission of appUserRef.permissions; track $index; let last = $last) {
+              <span>
+                <a [routerLink]="['/permission', permission.id, 'view']">{{ permission?.id }}</a
+                >{{ last ? '' : ', ' }}
+              </span>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left" />&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+        </button>
+
+        <button type="button" [routerLink]="['/app-user', appUserRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt" />&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

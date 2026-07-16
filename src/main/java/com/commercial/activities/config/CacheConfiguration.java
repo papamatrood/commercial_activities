@@ -44,6 +44,21 @@ public class CacheConfiguration {
             createCache(cm, com.commercial.activities.domain.User.class.getName());
             createCache(cm, com.commercial.activities.domain.Authority.class.getName());
             createCache(cm, com.commercial.activities.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.commercial.activities.domain.AppUser.class.getName());
+            createCache(cm, com.commercial.activities.domain.AppUser.class.getName() + ".permissions");
+            createCache(cm, com.commercial.activities.domain.Company.class.getName());
+            createCache(cm, com.commercial.activities.domain.CompanySubscription.class.getName());
+            createCache(cm, com.commercial.activities.domain.Permission.class.getName());
+            createCache(cm, com.commercial.activities.domain.Permission.class.getName() + ".appUsers");
+            createCache(cm, com.commercial.activities.domain.Supplier.class.getName());
+            createCache(cm, com.commercial.activities.domain.Product.class.getName());
+            createCache(cm, com.commercial.activities.domain.StockArrival.class.getName());
+            createCache(cm, com.commercial.activities.domain.Sale.class.getName());
+            createCache(cm, com.commercial.activities.domain.SaleLine.class.getName());
+            createCache(cm, com.commercial.activities.domain.Debt.class.getName());
+            createCache(cm, com.commercial.activities.domain.DebtPayment.class.getName());
+            createCache(cm, com.commercial.activities.domain.CashCollection.class.getName());
+            createCache(cm, com.commercial.activities.domain.CashDisbursement.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

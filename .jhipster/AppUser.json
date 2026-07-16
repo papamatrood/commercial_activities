@@ -1,0 +1,67 @@
+{
+  "annotations": {
+    "changelogDate": "20260716212710"
+  },
+  "applications": ["*"],
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "phoneNumber",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "AppUserTypeEnum",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "SUPER_ADMIN,COMPANY_ADMIN,USER"
+    },
+    {
+      "fieldName": "birthDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "birthPlace",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "gender",
+      "fieldType": "GenderEnum",
+      "fieldValues": "MALE,FEMALE"
+    },
+    {
+      "fieldName": "disabled",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "disabledDate",
+      "fieldType": "Instant"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "AppUser",
+  "relationships": [
+    {
+      "otherEntityName": "user",
+      "relationshipName": "user",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one",
+      "relationshipWithBuiltInEntity": true
+    },
+    {
+      "otherEntityName": "company",
+      "relationshipName": "company",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "permission",
+      "otherEntityRelationshipName": "appUser",
+      "relationshipName": "permission",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

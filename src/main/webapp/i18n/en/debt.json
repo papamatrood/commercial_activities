@@ -1,0 +1,29 @@
+{
+  "commercialActivitiesApp": {
+    "debt": {
+      "home": {
+        "title": "Debts",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Debt",
+        "createOrEditLabel": "Create or edit a Debt",
+        "notFound": "No Debts found"
+      },
+      "created": "A new Debt is created with identifier {{ param }}",
+      "updated": "A Debt is updated with identifier {{ param }}",
+      "deleted": "A Debt is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Debt {{ id }}?"
+      },
+      "detail": {
+        "title": "Debt"
+      },
+      "id": "ID",
+      "totalAmount": "Total Amount",
+      "amountPaid": "Amount Paid",
+      "remainingAmount": "Remaining Amount",
+      "date": "Date",
+      "company": "Company",
+      "sale": "Sale"
+    }
+  }
+}

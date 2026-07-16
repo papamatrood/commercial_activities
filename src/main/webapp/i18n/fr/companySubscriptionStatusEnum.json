@@ -1,0 +1,10 @@
+{
+  "commercialActivitiesApp": {
+    "CompanySubscriptionStatusEnum": {
+      "null": "",
+      "ACTIVE": "ACTIVE",
+      "EXPIRED": "EXPIRED",
+      "CANCELLED": "CANCELLED"
+    }
+  }
+}

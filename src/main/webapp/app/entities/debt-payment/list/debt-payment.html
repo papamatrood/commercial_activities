@@ -1,0 +1,134 @@
+<div>
+  <h2 id="page-heading" data-cy="DebtPaymentHeading">
+    <span jhiTranslate="commercialActivitiesApp.debtPayment.home.title">DebtPayments</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading()">
+        <fa-icon icon="sync" [animation]="isLoading() ? 'spin' : undefined" />
+        <span jhiTranslate="commercialActivitiesApp.debtPayment.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-debt-payment"
+        [routerLink]="['/debt-payment/new']"
+      >
+        <fa-icon icon="plus" />
+        <span jhiTranslate="commercialActivitiesApp.debtPayment.home.createLabel">Créer un nouveau Debt Payment</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error />
+
+  <jhi-alert />
+
+  <jhi-filter [filters]="filters" />
+
+  @if (debtPayments().length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="commercialActivitiesApp.debtPayment.home.notFound">Aucun Debt Payment trouvé</span>
+    </div>
+  } @else {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(sortState)]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="amountPaid">
+              <div class="d-flex">
+                <span jhiTranslate="commercialActivitiesApp.debtPayment.amountPaid">Amount Paid</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="remainingAmount">
+              <div class="d-flex">
+                <span jhiTranslate="commercialActivitiesApp.debtPayment.remainingAmount">Remaining Amount</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="date">
+              <div class="d-flex">
+                <span jhiTranslate="commercialActivitiesApp.debtPayment.date">Date</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="debt.id">
+              <div class="d-flex">
+                <span jhiTranslate="commercialActivitiesApp.debtPayment.debt">Debt</span>
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (debtPayment of debtPayments(); track trackId(debtPayment)) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/debt-payment', debtPayment.id, 'view']">{{ debtPayment.id }}</a>
+              </td>
+              <td>{{ debtPayment.amountPaid }}</td>
+              <td>{{ debtPayment.remainingAmount }}</td>
+              <td>{{ debtPayment.date | formatMediumDatetime }}</td>
+              <td>
+                @if (debtPayment.debt) {
+                  <div>
+                    <a [routerLink]="['/debt', debtPayment.debt.id, 'view']">{{ debtPayment.debt.id }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/debt-payment', debtPayment.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+                  </a>
+
+                  <a [routerLink]="['/debt-payment', debtPayment.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(debtPayment)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (debtPayments().length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page(), totalItems: totalItems(), itemsPerPage: itemsPerPage() }" />
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems()"
+          [page]="page()"
+          [pageSize]="itemsPerPage()"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        />
+      </div>
+    </div>
+  }
+</div>

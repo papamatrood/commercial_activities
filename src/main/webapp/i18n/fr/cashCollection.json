@@ -1,0 +1,27 @@
+{
+  "commercialActivitiesApp": {
+    "cashCollection": {
+      "home": {
+        "title": "CashCollections",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Cash Collection",
+        "createOrEditLabel": "Créer ou éditer un Cash Collection",
+        "notFound": "Aucun Cash Collection trouvé"
+      },
+      "created": "Un nouveau Cash Collection a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Cash Collection avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Cash Collection avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Cash Collection {{ id }} ?"
+      },
+      "detail": {
+        "title": "Cash Collection"
+      },
+      "id": "ID",
+      "date": "Date",
+      "amount": "Amount",
+      "company": "Company",
+      "user": "User"
+    }
+  }
+}

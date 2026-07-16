@@ -1,0 +1,28 @@
+{
+  "commercialActivitiesApp": {
+    "stockArrival": {
+      "home": {
+        "title": "StockArrivals",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Stock Arrival",
+        "createOrEditLabel": "Créer ou éditer un Stock Arrival",
+        "notFound": "Aucun Stock Arrival trouvé"
+      },
+      "created": "Un nouveau Stock Arrival a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Stock Arrival avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Stock Arrival avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Stock Arrival {{ id }} ?"
+      },
+      "detail": {
+        "title": "Stock Arrival"
+      },
+      "id": "ID",
+      "barcode": "Barcode",
+      "quantity": "Quantity",
+      "amount": "Amount",
+      "date": "Date",
+      "product": "Product"
+    }
+  }
+}

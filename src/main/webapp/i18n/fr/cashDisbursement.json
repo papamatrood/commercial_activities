@@ -1,0 +1,28 @@
+{
+  "commercialActivitiesApp": {
+    "cashDisbursement": {
+      "home": {
+        "title": "CashDisbursements",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Cash Disbursement",
+        "createOrEditLabel": "Créer ou éditer un Cash Disbursement",
+        "notFound": "Aucun Cash Disbursement trouvé"
+      },
+      "created": "Un nouveau Cash Disbursement a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Cash Disbursement avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Cash Disbursement avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Cash Disbursement {{ id }} ?"
+      },
+      "detail": {
+        "title": "Cash Disbursement"
+      },
+      "id": "ID",
+      "reason": "Reason",
+      "amount": "Amount",
+      "date": "Date",
+      "company": "Company",
+      "user": "User"
+    }
+  }
+}

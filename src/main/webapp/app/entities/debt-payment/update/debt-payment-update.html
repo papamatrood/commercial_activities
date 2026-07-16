@@ -1,0 +1,113 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-debt-payment-heading"
+        data-cy="DebtPaymentCreateUpdateHeading"
+        jhiTranslate="commercialActivitiesApp.debtPayment.home.createOrEditLabel"
+      >
+        Créer ou éditer un Debt Payment
+      </h2>
+
+      <div>
+        <jhi-alert-error />
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="global.field.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        @let amountPaidRef = editForm.get('amountPaid')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_amountPaid" jhiTranslate="commercialActivitiesApp.debtPayment.amountPaid">Amount Paid</label>
+          <input
+            type="number"
+            class="form-control"
+            name="amountPaid"
+            id="field_amountPaid"
+            data-cy="amountPaid"
+            formControlName="amountPaid"
+          />
+          @if (amountPaidRef.invalid && (amountPaidRef.dirty || amountPaidRef.touched)) {
+            <div>
+              @if (amountPaidRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">Ce champ est obligatoire.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!amountPaidRef.errors?.number" jhiTranslate="entity.validation.number"
+                >Ce champ doit être un nombre.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_remainingAmount" jhiTranslate="commercialActivitiesApp.debtPayment.remainingAmount"
+            >Remaining Amount</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="remainingAmount"
+            id="field_remainingAmount"
+            data-cy="remainingAmount"
+            formControlName="remainingAmount"
+          />
+        </div>
+
+        @let dateRef = editForm.get('date')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_date" jhiTranslate="commercialActivitiesApp.debtPayment.date">Date</label>
+          <div class="d-flex">
+            <input
+              id="field_date"
+              data-cy="date"
+              type="datetime-local"
+              class="form-control"
+              name="date"
+              formControlName="date"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          @if (dateRef.invalid && (dateRef.dirty || dateRef.touched)) {
+            <div>
+              @if (dateRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">Ce champ est obligatoire.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!dateRef.errors?.datetimelocal" jhiTranslate="entity.validation.datetimelocal"
+                >Ce champ doit être une date et une heure.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_debt" jhiTranslate="commercialActivitiesApp.debtPayment.debt">Debt</label>
+          <select class="form-control" id="field_debt" data-cy="debt" name="debt" formControlName="debt" [compareWith]="compareDebt">
+            <option [ngValue]="null"></option>
+            @for (debtOption of debtsSharedCollection(); track $index) {
+              <option [ngValue]="debtOption">{{ debtOption.id }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban" />&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving()"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save" />&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

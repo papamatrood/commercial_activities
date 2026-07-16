@@ -1,0 +1,32 @@
+{
+  "annotations": {
+    "changelogDate": "20260716212711"
+  },
+  "applications": ["*"],
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "location",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "creationDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "CompanyStatusEnum",
+      "fieldValues": "ACTIVE,BLOCKED"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "Company",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

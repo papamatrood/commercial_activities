@@ -8,7 +8,20 @@
       "entities": {
         "main": "Entités",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
-        "adminAuthority": "Authority"
+        "adminAuthority": "Authority",
+        "appUser": "App User",
+        "company": "Company",
+        "companySubscription": "Company Subscription",
+        "permission": "Permission",
+        "supplier": "Supplier",
+        "product": "Product",
+        "stockArrival": "Stock Arrival",
+        "sale": "Sale",
+        "saleLine": "Sale Line",
+        "debt": "Debt",
+        "debtPayment": "Debt Payment",
+        "cashCollection": "Cash Collection",
+        "cashDisbursement": "Cash Disbursement"
       },
       "account": {
         "main": "Compte",

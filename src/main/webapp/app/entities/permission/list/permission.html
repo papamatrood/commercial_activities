@@ -1,0 +1,106 @@
+<div>
+  <h2 id="page-heading" data-cy="PermissionHeading">
+    <span jhiTranslate="commercialActivitiesApp.permission.home.title">Permissions</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading()">
+        <fa-icon icon="sync" [animation]="isLoading() ? 'spin' : undefined" />
+        <span jhiTranslate="commercialActivitiesApp.permission.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-permission"
+        [routerLink]="['/permission/new']"
+      >
+        <fa-icon icon="plus" />
+        <span jhiTranslate="commercialActivitiesApp.permission.home.createLabel">Créer un nouveau Permission</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error />
+
+  <jhi-alert />
+
+  @if (permissions().length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="commercialActivitiesApp.permission.home.notFound">Aucun Permission trouvé</span>
+    </div>
+  } @else {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(sortState)]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="code">
+              <div class="d-flex">
+                <span jhiTranslate="commercialActivitiesApp.permission.code">Code</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="label">
+              <div class="d-flex">
+                <span jhiTranslate="commercialActivitiesApp.permission.label">Label</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="appUser.id">
+              <div class="d-flex">
+                <span jhiTranslate="commercialActivitiesApp.permission.appUser">App User</span>
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (permission of permissions(); track trackId(permission)) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/permission', permission.id, 'view']">{{ permission.id }}</a>
+              </td>
+              <td>{{ permission.code }}</td>
+              <td>{{ permission.label }}</td>
+              <td>
+                @for (appUser of permission.appUsers; track $index; let last = $last) {
+                  <span>
+                    <a class="form-control-static" [routerLink]="['/app-user', appUser.id, 'view']">{{ appUser.id }}</a
+                    >{{ last ? '' : ', ' }}
+                  </span>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/permission', permission.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+                  </a>
+
+                  <a [routerLink]="['/permission', permission.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(permission)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

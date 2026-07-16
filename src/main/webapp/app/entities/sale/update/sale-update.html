@@ -1,0 +1,196 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-sale-heading" data-cy="SaleCreateUpdateHeading" jhiTranslate="commercialActivitiesApp.sale.home.createOrEditLabel">
+        Créer ou éditer un Sale
+      </h2>
+
+      <div>
+        <jhi-alert-error />
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="global.field.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        @let dateRef = editForm.get('date')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_date" jhiTranslate="commercialActivitiesApp.sale.date">Date</label>
+          <div class="d-flex">
+            <input
+              id="field_date"
+              data-cy="date"
+              type="datetime-local"
+              class="form-control"
+              name="date"
+              formControlName="date"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          @if (dateRef.invalid && (dateRef.dirty || dateRef.touched)) {
+            <div>
+              @if (dateRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">Ce champ est obligatoire.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!dateRef.errors?.datetimelocal" jhiTranslate="entity.validation.datetimelocal"
+                >Ce champ doit être une date et une heure.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let amountToPayRef = editForm.get('amountToPay')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_amountToPay" jhiTranslate="commercialActivitiesApp.sale.amountToPay">Amount To Pay</label>
+          <input
+            type="number"
+            class="form-control"
+            name="amountToPay"
+            id="field_amountToPay"
+            data-cy="amountToPay"
+            formControlName="amountToPay"
+          />
+          @if (amountToPayRef.invalid && (amountToPayRef.dirty || amountToPayRef.touched)) {
+            <div>
+              @if (amountToPayRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">Ce champ est obligatoire.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!amountToPayRef.errors?.number" jhiTranslate="entity.validation.number"
+                >Ce champ doit être un nombre.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let amountPaidRef = editForm.get('amountPaid')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_amountPaid" jhiTranslate="commercialActivitiesApp.sale.amountPaid">Amount Paid</label>
+          <input
+            type="number"
+            class="form-control"
+            name="amountPaid"
+            id="field_amountPaid"
+            data-cy="amountPaid"
+            formControlName="amountPaid"
+          />
+          @if (amountPaidRef.invalid && (amountPaidRef.dirty || amountPaidRef.touched)) {
+            <div>
+              @if (amountPaidRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">Ce champ est obligatoire.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!amountPaidRef.errors?.number" jhiTranslate="entity.validation.number"
+                >Ce champ doit être un nombre.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_remainingAmount" jhiTranslate="commercialActivitiesApp.sale.remainingAmount"
+            >Remaining Amount</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="remainingAmount"
+            id="field_remainingAmount"
+            data-cy="remainingAmount"
+            formControlName="remainingAmount"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_customerName" jhiTranslate="commercialActivitiesApp.sale.customerName">Customer Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="customerName"
+            id="field_customerName"
+            data-cy="customerName"
+            formControlName="customerName"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_customerCompany" jhiTranslate="commercialActivitiesApp.sale.customerCompany"
+            >Customer Company</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="customerCompany"
+            id="field_customerCompany"
+            data-cy="customerCompany"
+            formControlName="customerCompany"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_customerContact" jhiTranslate="commercialActivitiesApp.sale.customerContact"
+            >Customer Contact</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="customerContact"
+            id="field_customerContact"
+            data-cy="customerContact"
+            formControlName="customerContact"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_company" jhiTranslate="commercialActivitiesApp.sale.company">Company</label>
+          <select
+            class="form-control"
+            id="field_company"
+            data-cy="company"
+            name="company"
+            formControlName="company"
+            [compareWith]="compareCompany"
+          >
+            <option [ngValue]="null"></option>
+            @for (companyOption of companiesSharedCollection(); track $index) {
+              <option [ngValue]="companyOption">{{ companyOption.id }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_seller" jhiTranslate="commercialActivitiesApp.sale.seller">Seller</label>
+          <select
+            class="form-control"
+            id="field_seller"
+            data-cy="seller"
+            name="seller"
+            formControlName="seller"
+            [compareWith]="compareAppUser"
+          >
+            <option [ngValue]="null"></option>
+            @for (appUserOption of appUsersSharedCollection(); track $index) {
+              <option [ngValue]="appUserOption">{{ appUserOption.id }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban" />&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving()"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save" />&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

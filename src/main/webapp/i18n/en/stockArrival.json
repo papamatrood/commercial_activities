@@ -1,0 +1,28 @@
+{
+  "commercialActivitiesApp": {
+    "stockArrival": {
+      "home": {
+        "title": "Stock Arrivals",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Stock Arrival",
+        "createOrEditLabel": "Create or edit a Stock Arrival",
+        "notFound": "No Stock Arrivals found"
+      },
+      "created": "A new Stock Arrival is created with identifier {{ param }}",
+      "updated": "A Stock Arrival is updated with identifier {{ param }}",
+      "deleted": "A Stock Arrival is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Stock Arrival {{ id }}?"
+      },
+      "detail": {
+        "title": "Stock Arrival"
+      },
+      "id": "ID",
+      "barcode": "Barcode",
+      "quantity": "Quantity",
+      "amount": "Amount",
+      "date": "Date",
+      "product": "Product"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "commercialActivitiesApp": {
+    "companySubscription": {
+      "home": {
+        "title": "Company Subscriptions",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Company Subscription",
+        "createOrEditLabel": "Create or edit a Company Subscription",
+        "notFound": "No Company Subscriptions found"
+      },
+      "created": "A new Company Subscription is created with identifier {{ param }}",
+      "updated": "A Company Subscription is updated with identifier {{ param }}",
+      "deleted": "A Company Subscription is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Company Subscription {{ id }}?"
+      },
+      "detail": {
+        "title": "Company Subscription"
+      },
+      "id": "ID",
+      "type": "Type",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "status": "Status",
+      "company": "Company"
+    }
+  }
+}

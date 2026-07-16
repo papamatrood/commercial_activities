@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (cashDisbursement(); as cashDisbursementRef) {
+      <div>
+        <h2 data-cy="cashDisbursementDetailsHeading">
+          <span jhiTranslate="commercialActivitiesApp.cashDisbursement.detail.title">Cash Disbursement</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ cashDisbursementRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.cashDisbursement.reason">Reason</span></dt>
+          <dd>
+            <span>{{ cashDisbursementRef.reason }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.cashDisbursement.amount">Amount</span></dt>
+          <dd>
+            <span>{{ cashDisbursementRef.amount }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.cashDisbursement.date">Date</span></dt>
+          <dd>
+            <span>{{ cashDisbursementRef.date | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.cashDisbursement.company">Company</span></dt>
+          <dd>
+            @if (cashDisbursement()!.company) {
+              <div>
+                <a [routerLink]="['/company', cashDisbursement()!.company?.id, 'view']">{{ cashDisbursementRef.company?.id }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.cashDisbursement.user">User</span></dt>
+          <dd>
+            @if (cashDisbursement()!.user) {
+              <div>
+                <a [routerLink]="['/app-user', cashDisbursement()!.user?.id, 'view']">{{ cashDisbursementRef.user?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left" />&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+        </button>
+
+        <button type="button" [routerLink]="['/cash-disbursement', cashDisbursementRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt" />&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

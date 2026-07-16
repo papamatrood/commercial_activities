@@ -1,0 +1,181 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-app-user-heading"
+        data-cy="AppUserCreateUpdateHeading"
+        jhiTranslate="commercialActivitiesApp.appUser.home.createOrEditLabel"
+      >
+        Créer ou éditer un App User
+      </h2>
+
+      <div>
+        <jhi-alert-error />
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="global.field.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        @let phoneNumberRef = editForm.get('phoneNumber')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_phoneNumber" jhiTranslate="commercialActivitiesApp.appUser.phoneNumber">Phone Number</label>
+          <input
+            type="text"
+            class="form-control"
+            name="phoneNumber"
+            id="field_phoneNumber"
+            data-cy="phoneNumber"
+            formControlName="phoneNumber"
+          />
+          @if (phoneNumberRef.invalid && (phoneNumberRef.dirty || phoneNumberRef.touched)) {
+            <div>
+              @if (phoneNumberRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">Ce champ est obligatoire.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let typeRef = editForm.get('type')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_type" jhiTranslate="commercialActivitiesApp.appUser.type">Type</label>
+          <select class="form-control" name="type" formControlName="type" id="field_type" data-cy="type">
+            <option [ngValue]="null">{{ 'commercialActivitiesApp.AppUserTypeEnum.null' | translate }}</option>
+            @for (appUserTypeEnum of appUserTypeEnumValues; track $index) {
+              <option [value]="appUserTypeEnum">{{ 'commercialActivitiesApp.AppUserTypeEnum.' + appUserTypeEnum | translate }}</option>
+            }
+          </select>
+          @if (typeRef.invalid && (typeRef.dirty || typeRef.touched)) {
+            <div>
+              @if (typeRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">Ce champ est obligatoire.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_birthDate" jhiTranslate="commercialActivitiesApp.appUser.birthDate">Birth Date</label>
+          <div class="d-flex">
+            <input
+              id="field_birthDate"
+              data-cy="birthDate"
+              type="datetime-local"
+              class="form-control"
+              name="birthDate"
+              formControlName="birthDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_birthPlace" jhiTranslate="commercialActivitiesApp.appUser.birthPlace">Birth Place</label>
+          <input
+            type="text"
+            class="form-control"
+            name="birthPlace"
+            id="field_birthPlace"
+            data-cy="birthPlace"
+            formControlName="birthPlace"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_gender" jhiTranslate="commercialActivitiesApp.appUser.gender">Gender</label>
+          <select class="form-control" name="gender" formControlName="gender" id="field_gender" data-cy="gender">
+            <option [ngValue]="null">{{ 'commercialActivitiesApp.GenderEnum.null' | translate }}</option>
+            @for (genderEnum of genderEnumValues; track $index) {
+              <option [value]="genderEnum">{{ 'commercialActivitiesApp.GenderEnum.' + genderEnum | translate }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_disabled" jhiTranslate="commercialActivitiesApp.appUser.disabled">Disabled</label>
+          <input type="checkbox" class="form-check" name="disabled" id="field_disabled" data-cy="disabled" formControlName="disabled" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_disabledDate" jhiTranslate="commercialActivitiesApp.appUser.disabledDate"
+            >Disabled Date</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_disabledDate"
+              data-cy="disabledDate"
+              type="datetime-local"
+              class="form-control"
+              name="disabledDate"
+              formControlName="disabledDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_user" jhiTranslate="commercialActivitiesApp.appUser.user">User</label>
+          <select class="form-control" id="field_user" data-cy="user" name="user" formControlName="user" [compareWith]="compareUser">
+            <option [ngValue]="null"></option>
+            @for (userOption of usersSharedCollection(); track $index) {
+              <option [ngValue]="userOption">{{ userOption.id }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_company" jhiTranslate="commercialActivitiesApp.appUser.company">Company</label>
+          <select
+            class="form-control"
+            id="field_company"
+            data-cy="company"
+            name="company"
+            formControlName="company"
+            [compareWith]="compareCompany"
+          >
+            <option [ngValue]="null"></option>
+            @for (companyOption of companiesSharedCollection(); track $index) {
+              <option [ngValue]="companyOption">{{ companyOption.id }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="field_permissions" jhiTranslate="commercialActivitiesApp.appUser.permission">Permission</label>
+          <select
+            class="form-control"
+            id="field_permissions"
+            data-cy="permission"
+            multiple
+            name="permissions"
+            formControlName="permissions"
+            [compareWith]="comparePermission"
+          >
+            @for (permissionOption of permissionsSharedCollection(); track $index) {
+              <option [ngValue]="permissionOption">{{ permissionOption.id }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban" />&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving()"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save" />&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

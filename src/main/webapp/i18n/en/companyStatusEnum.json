@@ -1,0 +1,9 @@
+{
+  "commercialActivitiesApp": {
+    "CompanyStatusEnum": {
+      "null": "",
+      "ACTIVE": "ACTIVE",
+      "BLOCKED": "BLOCKED"
+    }
+  }
+}

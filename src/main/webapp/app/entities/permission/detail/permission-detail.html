@@ -1,0 +1,47 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (permission(); as permissionRef) {
+      <div>
+        <h2 data-cy="permissionDetailsHeading"><span jhiTranslate="commercialActivitiesApp.permission.detail.title">Permission</span></h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ permissionRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.permission.code">Code</span></dt>
+          <dd>
+            <span>{{ permissionRef.code }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.permission.label">Label</span></dt>
+          <dd>
+            <span>{{ permissionRef.label }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.permission.appUser">App User</span></dt>
+          <dd>
+            @for (appUser of permissionRef.appUsers; track $index; let last = $last) {
+              <span>
+                <a [routerLink]="['/app-user', appUser.id, 'view']">{{ appUser?.id }}</a
+                >{{ last ? '' : ', ' }}
+              </span>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left" />&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+        </button>
+
+        <button type="button" [routerLink]="['/permission', permissionRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt" />&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

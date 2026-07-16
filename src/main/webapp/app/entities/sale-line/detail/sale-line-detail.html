@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (saleLine(); as saleLineRef) {
+      <div>
+        <h2 data-cy="saleLineDetailsHeading"><span jhiTranslate="commercialActivitiesApp.saleLine.detail.title">Sale Line</span></h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ saleLineRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.saleLine.barcode">Barcode</span></dt>
+          <dd>
+            <span>{{ saleLineRef.barcode }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.saleLine.quantity">Quantity</span></dt>
+          <dd>
+            <span>{{ saleLineRef.quantity }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.saleLine.unitPrice">Unit Price</span></dt>
+          <dd>
+            <span>{{ saleLineRef.unitPrice }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.saleLine.totalPrice">Total Price</span></dt>
+          <dd>
+            <span>{{ saleLineRef.totalPrice }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.saleLine.sale">Sale</span></dt>
+          <dd>
+            @if (saleLine()!.sale) {
+              <div>
+                <a [routerLink]="['/sale', saleLine()!.sale?.id, 'view']">{{ saleLineRef.sale?.id }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.saleLine.product">Product</span></dt>
+          <dd>
+            @if (saleLine()!.product) {
+              <div>
+                <a [routerLink]="['/product', saleLine()!.product?.id, 'view']">{{ saleLineRef.product?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left" />&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+        </button>
+
+        <button type="button" [routerLink]="['/sale-line', saleLineRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt" />&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

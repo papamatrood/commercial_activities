@@ -1,0 +1,32 @@
+{
+  "commercialActivitiesApp": {
+    "sale": {
+      "home": {
+        "title": "Sales",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Sale",
+        "createOrEditLabel": "Create or edit a Sale",
+        "notFound": "No Sales found"
+      },
+      "created": "A new Sale is created with identifier {{ param }}",
+      "updated": "A Sale is updated with identifier {{ param }}",
+      "deleted": "A Sale is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Sale {{ id }}?"
+      },
+      "detail": {
+        "title": "Sale"
+      },
+      "id": "ID",
+      "date": "Date",
+      "amountToPay": "Amount To Pay",
+      "amountPaid": "Amount Paid",
+      "remainingAmount": "Remaining Amount",
+      "customerName": "Customer Name",
+      "customerCompany": "Customer Company",
+      "customerContact": "Customer Contact",
+      "company": "Company",
+      "seller": "Seller"
+    }
+  }
+}

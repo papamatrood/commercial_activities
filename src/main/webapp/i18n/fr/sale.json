@@ -1,0 +1,32 @@
+{
+  "commercialActivitiesApp": {
+    "sale": {
+      "home": {
+        "title": "Sales",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Sale",
+        "createOrEditLabel": "Créer ou éditer un Sale",
+        "notFound": "Aucun Sale trouvé"
+      },
+      "created": "Un nouveau Sale a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Sale avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Sale avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Sale {{ id }} ?"
+      },
+      "detail": {
+        "title": "Sale"
+      },
+      "id": "ID",
+      "date": "Date",
+      "amountToPay": "Amount To Pay",
+      "amountPaid": "Amount Paid",
+      "remainingAmount": "Remaining Amount",
+      "customerName": "Customer Name",
+      "customerCompany": "Customer Company",
+      "customerContact": "Customer Contact",
+      "company": "Company",
+      "seller": "Seller"
+    }
+  }
+}
