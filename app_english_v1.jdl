@@ -1,0 +1,260 @@
+// =========================================================
+// Business Activity Management Application - JDL
+// =========================================================
+// NOTE: AppUser already exists in your project with its
+// OneToOne relationship to User (builtInEntity). It is
+// redeclared here with the SAME fields so the JDL import
+// doesn't create a conflict / duplicate.
+//
+// NOTE ON RENAMING: the entity "Subscription" was renamed to
+// "CompanySubscription" because "Subscription" is a reserved
+// word used internally by JHipster (it conflicts with
+// JHipster's own generated code/classes), which causes
+// generation errors or unwanted overrides. The related enums
+// were renamed the same way for consistency.
+// =========================================================
+
+// ---------------------------------------------------------
+// AppUser: represents any person who can log into the app
+// (super admin, company admin, or simple company user).
+// Login is always done with the phone number (see business
+// rules: "the identifier is the user's phone number").
+// ---------------------------------------------------------
+entity AppUser {
+    phoneNumber   String required   // Login identifier of the user (used instead of email/username)
+    type          AppUserTypeEnum required // Role of the user: SUPER_ADMIN, COMPANY_ADMIN or simple USER
+    birthDate     Instant           // Optional date of birth of the user
+    birthPlace    String            // Optional place of birth of the user
+    gender        GenderEnum        // Optional gender of the user
+    disabled      Boolean           // Whether the account has been deactivated (true) or is active (false)
+    disabledDate  Instant           // Date/time when the account was deactivated, if applicable
+}
+
+// Defines the 3 categories of users described in the specs:
+// - SUPER_ADMIN: platform owner, manages everything
+// - COMPANY_ADMIN: manages one or several companies
+// - USER: simple employee restricted to their company's data
+enum AppUserTypeEnum {
+    SUPER_ADMIN, COMPANY_ADMIN, USER
+}
+
+// Simple gender enumeration for the optional "gender" field
+enum GenderEnum {
+    MALE, FEMALE
+}
+
+// ---------------------------------------------------------
+// Companies & subscriptions
+// ---------------------------------------------------------
+
+// Company: represents a business/enterprise registered on the
+// platform. Each company has its own isolated data (users,
+// products, sales, cash register, etc.).
+entity Company {
+    name           String required // Name of the company
+    location       String          // Locality / city where the company is based
+    creationDate   Instant         // Date the company was registered on the platform
+    status         CompanyStatusEnum // Whether the company is currently ACTIVE or BLOCKED (e.g. after subscription expiry)
+}
+
+// Status of a company account:
+// - ACTIVE: company can use the app normally
+// - BLOCKED: access is locked (e.g. subscription expired)
+enum CompanyStatusEnum {
+    ACTIVE, BLOCKED
+}
+
+// CompanySubscription: tracks the subscription plan of a
+// company (renamed from "Subscription" to avoid conflicting
+// with JHipster's reserved/internal "Subscription" name).
+// A countdown of remaining days is computed from
+// startDate/endDate and shown on both the super admin and
+// company dashboards. 10 days before endDate, a warning modal
+// is shown to authorized users; after endDate, the company is
+// blocked from the app.
+entity CompanySubscription {
+    type        CompanySubscriptionTypeEnum required // Subscription plan chosen: MONTHLY, QUARTERLY, HALF_YEARLY or YEARLY
+    startDate   Instant required // Date the subscription period started
+    endDate     Instant required // Date the subscription period ends (used for the countdown/alert)
+    status      CompanySubscriptionStatusEnum // Current state of the subscription: ACTIVE, EXPIRED or CANCELLED
+}
+
+// Billing frequency options for a company subscription
+enum CompanySubscriptionTypeEnum {
+    MONTHLY, QUARTERLY, HALF_YEARLY, YEARLY
+}
+
+// Lifecycle status of a company subscription:
+// - ACTIVE: currently valid, company has full access
+// - EXPIRED: end date passed, company access is blocked
+// - CANCELLED: manually terminated before its natural end date
+enum CompanySubscriptionStatusEnum {
+    ACTIVE, EXPIRED, CANCELLED
+}
+
+// ---------------------------------------------------------
+// Access rights (granular permissions)
+// ---------------------------------------------------------
+
+// Permission: a single granular access right that can be
+// granted to an AppUser (e.g. "create super admin", "delete
+// company admin", "view reports", "subscription end alarm"...).
+// Linked to AppUser through a many-to-many relationship so a
+// user can hold several permissions and a permission can be
+// assigned to several users.
+entity Permission {
+    code    String required unique // Technical unique code identifying the right (e.g. CREATE_SUPER_ADMIN)
+    label   String required        // Human-readable label describing the right, shown in the UI
+}
+
+// ---------------------------------------------------------
+// Products
+// ---------------------------------------------------------
+
+// Supplier: the provider of a product, editable even after
+// the product itself has been registered (per business rule
+// that only supplier info stays modifiable post-creation).
+entity Supplier {
+    name      String required // Name of the supplier
+    contact   String          // Contact info (phone/email) of the supplier
+}
+
+// Product: an item (material/equipment) sold by a company.
+// Corresponds to the "Nouveau" (new product) registration
+// screen. The barcode is uniquely tied to the product name.
+entity Product {
+    barcode        String required unique // Barcode identifying the product, linked to its designation
+    designation    String required        // Name/label of the product
+    initialStock   Integer                // Stock quantity recorded at creation time
+    currentStock   Integer                // Live stock quantity, updated automatically on sales/arrivals
+    unitPrice      BigDecimal required    // Unit price of the product (editable after creation)
+}
+
+// StockArrival: corresponds to the "Ancien" (existing product)
+// registration screen — recording a new incoming quantity for
+// a product that already exists in the catalog. Barcode and
+// product are linked both ways (entering one auto-fills the
+// other).
+entity StockArrival {
+    barcode    String            // Barcode of the existing product receiving new stock
+    quantity   Integer required  // Quantity of the new arrival
+    amount     BigDecimal        // Total amount/cost of this stock arrival
+    date       Instant required  // Date the stock arrival was recorded
+}
+
+// ---------------------------------------------------------
+// Sales
+// ---------------------------------------------------------
+
+// Sale: header of a sales transaction. Stock is updated
+// automatically and a receipt can be generated/printed.
+// Does NOT impact the cash register balance directly (per
+// business rule: "La vente n'impacte pas sur l'état de la
+// caisse").
+entity Sale {
+    date              Instant required   // Date/time the sale was made
+    amountToPay       BigDecimal required // Total amount the customer must pay
+    amountPaid        BigDecimal required // Amount actually paid by the customer at the time of sale
+    remainingAmount   BigDecimal          // Amount still owed (amountToPay - amountPaid); if > 0 it becomes a Debt
+    customerName      String              // Customer's name (optional, but required if a debt is created)
+    customerCompany   String              // Customer's own company name (optional)
+    customerContact   String              // Customer's commission agent/contact info (optional)
+}
+
+// SaleLine: one product line within a Sale (a sale can contain
+// several different products, hence this repeatable line).
+entity SaleLine {
+    barcode      String              // Barcode of the sold product (auto-links product & unit price)
+    quantity     Integer required    // Quantity sold for this product line
+    unitPrice    BigDecimal required // Unit price applied for this sale (can be edited at sale time)
+    totalPrice   BigDecimal          // Automatically computed: quantity * unitPrice
+}
+
+// ---------------------------------------------------------
+// Debts
+// ---------------------------------------------------------
+
+// Debt: created automatically when a Sale's amountPaid is
+// lower than amountToPay. Removed from the debt list once
+// fully paid off. Debt status must be visible in the sales
+// screen as soon as the customer's name is entered.
+entity Debt {
+    totalAmount       BigDecimal required // Total amount owed by the customer for the related sale
+    amountPaid        BigDecimal          // Amount already paid so far on this debt
+    remainingAmount   BigDecimal          // Amount still remaining to be paid
+    date              Instant required    // Date the debt was created (i.e. date of the originating sale)
+}
+
+// DebtPayment: records a partial or full payment made by a
+// customer against an existing Debt.
+entity DebtPayment {
+    amountPaid        BigDecimal required // Amount paid during this specific payment
+    remainingAmount   BigDecimal          // Amount still remaining after this payment
+    date              Instant required    // Date the payment was made
+}
+
+// ---------------------------------------------------------
+// Cash register: cash collection (once/day) and disbursement
+// ---------------------------------------------------------
+
+// CashCollection: the mandatory once-a-day closing of the
+// cash register. The counted amount is added to the running
+// cash balance. If the previous day's collection is missing,
+// the app must block all actions until it is recorded.
+entity CashCollection {
+    date     Instant required   // Date of the cash register closing (the day being closed out)
+    amount   BigDecimal required // Amount counted in the cash register at closing time
+}
+
+// CashDisbursement: the only way to record an expense/outflow
+// of money. Can happen at any time (unlike CashCollection) and
+// is subtracted from the current cash balance.
+entity CashDisbursement {
+    reason   String required   // Reason/motive for the expense
+    amount   BigDecimal required // Amount disbursed/spent
+    date     Instant required   // Date the disbursement was made
+}
+
+// ===========================================================
+// Relationships
+// ===========================================================
+
+// AppUser is linked one-to-one to JHipster's built-in User
+// entity (technical account: login, email, authorities...).
+relationship OneToOne {
+    AppUser{user} to User with builtInEntity // Technical link between the business AppUser and JHipster's internal User account
+}
+
+relationship ManyToOne {
+    AppUser{company}              to Company             // The company this user belongs to (not set for super admins)
+    CompanySubscription{company}  to Company              // The subscription plan belongs to exactly one company
+    Product{company}              to Company              // The company that owns/sells this product
+    Product{supplier}             to Supplier             // The supplier providing this product
+    StockArrival{product}         to Product               // Which existing product this stock arrival replenishes
+    Sale{company}                 to Company               // The company where this sale took place
+    Sale{seller}                  to AppUser               // The user (employee) who performed the sale
+    SaleLine{sale}                 to Sale                  // The parent sale this product line belongs to
+    SaleLine{product}              to Product               // The product being sold in this line
+    Debt{company}                  to Company               // The company the indebted customer owes
+    Debt{sale}                     to Sale                  // The original sale that generated this debt
+    DebtPayment{debt}               to Debt                 // The debt this payment is reducing
+    CashCollection{company}         to Company               // The company whose cash register was closed
+    CashCollection{user}            to AppUser               // The user who performed the cash collection
+    CashDisbursement{company}       to Company               // The company from which the expense was taken
+    CashDisbursement{user}          to AppUser               // The user who recorded the disbursement
+}
+
+// A user can hold several permissions, and each permission can
+// be assigned to several users (granular access rights system).
+relationship ManyToMany {
+    AppUser{permission} to Permission{appUser} // Access rights granted to this user / users holding a given right
+}
+
+// ===========================================================
+// Generation options
+// ===========================================================
+
+dto * with mapstruct
+service all with serviceImpl
+paginate Product, StockArrival, Sale, SaleLine, Debt, DebtPayment, CashCollection, CashDisbursement with pagination
+filter *
