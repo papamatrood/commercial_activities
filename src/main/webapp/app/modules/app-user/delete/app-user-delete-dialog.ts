@@ -1,0 +1,33 @@
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap/modal';
+
+import { ITEM_DELETED_EVENT } from 'app/config/navigation.constants';
+import { AlertError } from 'app/shared/alert/alert-error';
+import { TranslateDirective } from 'app/shared/language';
+import { IAppUser } from 'app/entities/app-user/app-user.model';
+import { AppUserService } from 'app/entities/app-user/service/app-user.service';
+
+@Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  templateUrl: './app-user-delete-dialog.html',
+  imports: [TranslateDirective, FormsModule, FontAwesomeModule, AlertError],
+})
+export class AppUserDeleteDialog {
+  appUser?: IAppUser;
+
+  protected readonly appUserService = inject(AppUserService);
+  protected readonly activeModal = inject(NgbActiveModal);
+
+  cancel(): void {
+    this.activeModal.dismiss();
+  }
+
+  confirmDelete(id: number): void {
+    this.appUserService.delete(id).subscribe(() => {
+      this.activeModal.close(ITEM_DELETED_EVENT);
+    });
+  }
+}

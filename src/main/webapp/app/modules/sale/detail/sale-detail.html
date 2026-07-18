@@ -1,0 +1,74 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (sale(); as saleRef) {
+      <div>
+        <h2 data-cy="saleDetailsHeading"><span jhiTranslate="commercialActivitiesApp.sale.detail.title">Sale</span></h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ saleRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.sale.date">Date</span></dt>
+          <dd>
+            <span>{{ saleRef.date | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.sale.amountToPay">Amount To Pay</span></dt>
+          <dd>
+            <span>{{ saleRef.amountToPay }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.sale.amountPaid">Amount Paid</span></dt>
+          <dd>
+            <span>{{ saleRef.amountPaid }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.sale.remainingAmount">Remaining Amount</span></dt>
+          <dd>
+            <span>{{ saleRef.remainingAmount }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.sale.customerName">Customer Name</span></dt>
+          <dd>
+            <span>{{ saleRef.customerName }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.sale.customerCompany">Customer Company</span></dt>
+          <dd>
+            <span>{{ saleRef.customerCompany }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.sale.customerContact">Customer Contact</span></dt>
+          <dd>
+            <span>{{ saleRef.customerContact }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.sale.company">Company</span></dt>
+          <dd>
+            @if (sale()!.company) {
+              <div>
+                <a [routerLink]="['/company', sale()!.company?.id, 'view']">{{ saleRef.company?.id }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.sale.seller">Seller</span></dt>
+          <dd>
+            @if (sale()!.seller) {
+              <div>
+                <a [routerLink]="['/app-user', sale()!.seller?.id, 'view']">{{ saleRef.seller?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left" />&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+        </button>
+
+        <button type="button" [routerLink]="['/sale', saleRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt" />&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

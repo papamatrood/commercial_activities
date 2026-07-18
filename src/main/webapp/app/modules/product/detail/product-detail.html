@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (product(); as productRef) {
+      <div>
+        <h2 data-cy="productDetailsHeading"><span jhiTranslate="commercialActivitiesApp.product.detail.title">Product</span></h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ productRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.product.barcode">Barcode</span></dt>
+          <dd>
+            <span>{{ productRef.barcode }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.product.designation">Designation</span></dt>
+          <dd>
+            <span>{{ productRef.designation }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.product.initialStock">Initial Stock</span></dt>
+          <dd>
+            <span>{{ productRef.initialStock }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.product.currentStock">Current Stock</span></dt>
+          <dd>
+            <span>{{ productRef.currentStock }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.product.unitPrice">Unit Price</span></dt>
+          <dd>
+            <span>{{ productRef.unitPrice }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.product.company">Company</span></dt>
+          <dd>
+            @if (product()!.company) {
+              <div>
+                <a [routerLink]="['/company', product()!.company?.id, 'view']">{{ productRef.company?.id }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.product.supplier">Supplier</span></dt>
+          <dd>
+            @if (product()!.supplier) {
+              <div>
+                <a [routerLink]="['/supplier', product()!.supplier?.id, 'view']">{{ productRef.supplier?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left" />&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+        </button>
+
+        <button type="button" [routerLink]="['/product', productRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt" />&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

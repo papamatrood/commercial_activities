@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (company(); as companyRef) {
+      <div>
+        <h2 data-cy="companyDetailsHeading"><span jhiTranslate="commercialActivitiesApp.company.detail.title">Company</span></h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ companyRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.company.name">Name</span></dt>
+          <dd>
+            <span>{{ companyRef.name }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.company.location">Location</span></dt>
+          <dd>
+            <span>{{ companyRef.location }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.company.creationDate">Creation Date</span></dt>
+          <dd>
+            <span>{{ companyRef.creationDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="commercialActivitiesApp.company.status">Status</span></dt>
+          <dd>
+            <span [jhiTranslate]="'commercialActivitiesApp.CompanyStatusEnum.' + (companyRef.status ?? 'null')">{{
+              { null: '', ACTIVE: 'ACTIVE', BLOCKED: 'BLOCKED' }[companyRef.status ?? 'null']
+            }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left" />&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+        </button>
+
+        <button type="button" [routerLink]="['/company', companyRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt" />&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>
