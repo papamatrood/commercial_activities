@@ -1,6 +1,7 @@
 package com.commercial.activities.service;
 
 import com.commercial.activities.service.dto.AppUserDTO;
+import java.util.Map;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -55,4 +56,13 @@ public interface AppUserService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
+    /**
+     * Récupère les droits (Permission.code) de l'AppUser lié au login
+     * technique donné, sous forme de booléens prêts pour la sidebar.
+     *
+     * @param login le login technique (jhi_user.login) de l'utilisateur connecté.
+     * @return les droits, vide si aucun AppUser n'est lié à ce login.
+     */
+    Optional<Map<String, Boolean>> findPermissionFlagsByUserLogin(String login);
 }

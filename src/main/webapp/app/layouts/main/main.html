@@ -1,13 +1,17 @@
-<jhi-page-ribbon />
+<div class="app-shell" [class.app-shell--collapsed]="layoutState.isSidebarCollapsed()">
+  <jhi-sidebar />
 
-<div>
-  <router-outlet name="navbar" />
-</div>
+  <div class="app-main">
+    <router-outlet name="navbar" />
 
-<div class="container-fluid">
-  <div class="card jh-card">
-    <router-outlet />
+    <!-- <jhi-page-ribbon /> -->
+
+    <div class="container-fluid app-content">
+      <div class="card jh-card">
+        <router-outlet />
+      </div>
+
+      <jhi-footer />
+    </div>
   </div>
-
-  <jhi-footer />
 </div>

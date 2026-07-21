@@ -2,27 +2,27 @@
   "commercialActivitiesApp": {
     "cashDisbursement": {
       "home": {
-        "title": "CashDisbursements",
+        "title": "Décaissements",
         "refreshListLabel": "Actualiser la liste",
-        "createLabel": "Créer un nouveau Cash Disbursement",
-        "createOrEditLabel": "Créer ou éditer un Cash Disbursement",
-        "notFound": "Aucun Cash Disbursement trouvé"
+        "createLabel": "Créer un nouveau décaissement",
+        "createOrEditLabel": "Créer ou modifier un décaissement",
+        "notFound": "Aucun décaissement trouvé"
       },
-      "created": "Un nouveau Cash Disbursement a été créé avec l'identifiant {{ param }}",
-      "updated": "Le Cash Disbursement avec l'identifiant {{ param }} a été mis à jour",
-      "deleted": "Le Cash Disbursement avec l'identifiant {{ param }} a été supprimé",
+      "created": "Un nouveau décaissement a été créé avec l'identifiant {{ param }}",
+      "updated": "Le décaissement avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le décaissement avec l'identifiant {{ param }} a été supprimé",
       "delete": {
-        "question": "Êtes-vous certain de vouloir supprimer le Cash Disbursement {{ id }} ?"
+        "question": "Êtes-vous sûr de vouloir supprimer le décaissement {{ id }} ?"
       },
       "detail": {
-        "title": "Cash Disbursement"
+        "title": "Décaissement"
       },
       "id": "ID",
-      "reason": "Reason",
-      "amount": "Amount",
+      "reason": "Motif",
+      "amount": "Montant",
       "date": "Date",
-      "company": "Company",
-      "user": "User"
+      "company": "Entreprise",
+      "user": "Utilisateur"
     }
   }
 }

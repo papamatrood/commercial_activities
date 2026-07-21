@@ -3,16 +3,16 @@
     "debtPayment": {
       "home": {
         "title": "Debt Payments",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Create a new Debt Payment",
-        "createOrEditLabel": "Create or edit a Debt Payment",
-        "notFound": "No Debt Payments found"
+        "refreshListLabel": "Refresh List",
+        "createLabel": "Create a New Debt Payment",
+        "createOrEditLabel": "Create or Edit a Debt Payment",
+        "notFound": "No Debt Payments Found"
       },
-      "created": "A new Debt Payment is created with identifier {{ param }}",
-      "updated": "A Debt Payment is updated with identifier {{ param }}",
-      "deleted": "A Debt Payment is deleted with identifier {{ param }}",
+      "created": "A new Debt Payment has been created with identifier {{ param }}",
+      "updated": "The Debt Payment with identifier {{ param }} has been updated",
+      "deleted": "The Debt Payment with identifier {{ param }} has been deleted",
       "delete": {
-        "question": "Are you sure you want to delete Debt Payment {{ id }}?"
+        "question": "Are you sure you want to delete the Debt Payment {{ id }}?"
       },
       "detail": {
         "title": "Debt Payment"

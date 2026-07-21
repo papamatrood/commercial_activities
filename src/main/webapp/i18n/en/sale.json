@@ -3,14 +3,14 @@
     "sale": {
       "home": {
         "title": "Sales",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Create a new Sale",
-        "createOrEditLabel": "Create or edit a Sale",
-        "notFound": "No Sales found"
+        "refreshListLabel": "Refresh List",
+        "createLabel": "Create a New Sale",
+        "createOrEditLabel": "Create or Edit a Sale",
+        "notFound": "No Sales Found"
       },
-      "created": "A new Sale is created with identifier {{ param }}",
-      "updated": "A Sale is updated with identifier {{ param }}",
-      "deleted": "A Sale is deleted with identifier {{ param }}",
+      "created": "A new Sale has been created with identifier {{ param }}",
+      "updated": "The Sale with identifier {{ param }} has been updated",
+      "deleted": "The Sale with identifier {{ param }} has been deleted",
       "delete": {
         "question": "Are you sure you want to delete Sale {{ id }}?"
       },
@@ -19,7 +19,7 @@
       },
       "id": "ID",
       "date": "Date",
-      "amountToPay": "Amount To Pay",
+      "amountToPay": "Amount to Pay",
       "amountPaid": "Amount Paid",
       "remainingAmount": "Remaining Amount",
       "customerName": "Customer Name",

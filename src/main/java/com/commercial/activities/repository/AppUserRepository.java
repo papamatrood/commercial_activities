@@ -29,4 +29,6 @@ public interface AppUserRepository
     default Page<AppUser> findAllWithEagerRelationships(Pageable pageable) {
         return this.fetchBagRelationships(this.findAll(pageable));
     }
+
+    Optional<AppUser> findOneByUser_Login(String login);
 }

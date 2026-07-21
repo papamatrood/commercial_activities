@@ -1,23 +1,23 @@
 {
   "register": {
-    "title": "Création de compte utilisateur",
+    "title": "Inscription",
     "form": {
-      "button": "Enregistrement"
+      "button": "S'inscrire"
     },
     "messages": {
       "validate": {
         "login": {
-          "required": "Votre nom d'utilisateur est obligatoire.",
-          "minlength": "Votre nom d'utilisateur doit contenir au moins un caractère.",
-          "maxlength": "Votre nom d'utilisateur ne peut pas contenir plus de 50 caractères.",
-          "pattern": "Votre nom d'utilisateur est invalide."
+          "required": "Le nom d'utilisateur est obligatoire.",
+          "minlength": "Le nom d'utilisateur doit contenir au moins 1 caractère.",
+          "maxlength": "Le nom d'utilisateur ne peut pas dépasser 50 caractères.",
+          "pattern": "Le nom d'utilisateur est invalide."
         }
       },
-      "success": "<strong>Compte enregistré !</strong> Merci de vérifier votre email de confirmation.",
+      "success": "<strong>Inscription enregistrée avec succès !</strong> Veuillez consulter votre adresse e-mail pour confirmer votre compte.",
       "error": {
-        "fail": "<strong>Compte non créé !</strong> Merci d'essayer à nouveau plus tard.",
-        "userexists": "<strong>Ce compte utilisateur existe déjà !</strong> Veuillez en choisir un autre.",
-        "emailexists": "<strong>Cet email est déjà utilisé !</strong> Veuillez en choisir un autre."
+        "fail": "<strong>L'inscription a échoué !</strong> Veuillez réessayer ultérieurement.",
+        "userexists": "<strong>Ce nom d'utilisateur est déjà utilisé !</strong> Veuillez en choisir un autre.",
+        "emailexists": "<strong>Cette adresse e-mail est déjà utilisée !</strong> Veuillez en choisir une autre."
       }
     }
   }

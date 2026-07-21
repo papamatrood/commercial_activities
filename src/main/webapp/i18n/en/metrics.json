@@ -15,55 +15,55 @@
         "title": "Threads",
         "all": "All",
         "runnable": "Runnable",
-        "timedwaiting": "Timed waiting",
+        "timedwaiting": "Timed Waiting",
         "waiting": "Waiting",
         "blocked": "Blocked",
         "dump": {
-          "title": "Threads dump",
-          "id": "Id: ",
+          "title": "Thread Dump",
+          "id": "ID: ",
           "blockedtime": "Blocked Time",
           "blockedcount": "Blocked Count",
           "waitedtime": "Waited Time",
           "waitedcount": "Waited Count",
-          "lockname": "Lock name",
-          "stacktrace": "Stacktrace",
-          "show": "Show Stacktrace",
-          "hide": "Hide Stacktrace"
+          "lockname": "Lock Name",
+          "stacktrace": "Stack Trace",
+          "show": "Show Stack Trace",
+          "hide": "Hide Stack Trace"
         }
       },
       "gc": {
-        "title": "Garbage collections",
-        "marksweepcount": "Mark Sweep count",
-        "marksweeptime": "Mark Sweep time",
-        "scavengecount": "Scavenge count",
-        "scavengetime": "Scavenge time"
+        "title": "Garbage Collection",
+        "marksweepcount": "Mark Sweep Count",
+        "marksweeptime": "Mark Sweep Time",
+        "scavengecount": "Scavenge Count",
+        "scavengetime": "Scavenge Time"
       },
       "http": {
-        "title": "HTTP requests (time in millisecond)",
-        "active": "Active requests:",
-        "total": "Total requests:",
+        "title": "HTTP Requests (Time in Milliseconds)",
+        "active": "Active Requests:",
+        "total": "Total Requests:",
         "table": {
-          "code": "Code",
+          "code": "Status Code",
           "count": "Count",
           "mean": "Mean",
           "average": "Average",
-          "max": "Max"
+          "max": "Maximum"
         },
         "code": {
-          "ok": "Ok",
-          "notfound": "Not found",
+          "ok": "OK",
+          "notfound": "Not Found",
           "servererror": "Server Error"
         }
       }
     },
     "servicesstats": {
-      "title": "Services statistics (time in millisecond)",
+      "title": "Service Statistics (Time in Milliseconds)",
       "table": {
-        "name": "Service name",
+        "name": "Service Name",
         "count": "Count",
         "mean": "Mean",
-        "min": "Min",
-        "max": "Max",
+        "min": "Minimum",
+        "max": "Maximum",
         "p50": "p50",
         "p75": "p75",
         "p95": "p95",
@@ -71,8 +71,8 @@
       }
     },
     "cache": {
-      "title": "Cache statistics",
-      "cachename": "Cache name",
+      "title": "Cache Statistics",
+      "cachename": "Cache Name",
       "hits": "Cache Hits",
       "misses": "Cache Misses",
       "gets": "Cache Gets",
@@ -81,18 +81,18 @@
       "evictions": "Cache Evictions",
       "hitPercent": "Cache Hit %",
       "missPercent": "Cache Miss %",
-      "averageGetTime": "Average get time (µs)",
-      "averagePutTime": "Average put time (µs)",
-      "averageRemoveTime": "Average remove time (µs)"
+      "averageGetTime": "Average Get Time (µs)",
+      "averagePutTime": "Average Put Time (µs)",
+      "averageRemoveTime": "Average Remove Time (µs)"
     },
     "datasource": {
       "usage": "Connection Pool Usage",
-      "title": "DataSource statistics (time in millisecond)",
-      "name": "Pool usage",
+      "title": "Data Source Statistics (Time in Milliseconds)",
+      "name": "Pool Usage",
       "count": "Count",
       "mean": "Mean",
-      "min": "Min",
-      "max": "Max",
+      "min": "Minimum",
+      "max": "Maximum",
       "p50": "p50",
       "p75": "p75",
       "p95": "p95",

@@ -8,15 +8,19 @@ import { AppPageTitleStrategy } from 'app/app-page-title-strategy';
 import { AccountService } from 'app/core/auth/account.service';
 import Footer from '../footer/footer';
 import PageRibbon from '../profiles/page-ribbon';
+import Sidebar from '../sidebar/sidebar';
+import LayoutStateService from '../layout-state.service';
 
 @Component({
   selector: 'jhi-main',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './main.html',
   providers: [AppPageTitleStrategy],
-  imports: [RouterOutlet, Footer, PageRibbon],
+  imports: [RouterOutlet, Footer, PageRibbon, Sidebar],
 })
 export default class Main implements OnInit {
+  readonly layoutState = inject(LayoutStateService);
+
   private readonly renderer: Renderer2;
   private readonly htmlElement: HTMLElement;
 

@@ -2,27 +2,27 @@
   "commercialActivitiesApp": {
     "stockArrival": {
       "home": {
-        "title": "StockArrivals",
+        "title": "Entrées de stock",
         "refreshListLabel": "Actualiser la liste",
-        "createLabel": "Créer un nouveau Stock Arrival",
-        "createOrEditLabel": "Créer ou éditer un Stock Arrival",
-        "notFound": "Aucun Stock Arrival trouvé"
+        "createLabel": "Créer une nouvelle entrée de stock",
+        "createOrEditLabel": "Créer ou modifier une entrée de stock",
+        "notFound": "Aucune entrée de stock trouvée"
       },
-      "created": "Un nouveau Stock Arrival a été créé avec l'identifiant {{ param }}",
-      "updated": "Le Stock Arrival avec l'identifiant {{ param }} a été mis à jour",
-      "deleted": "Le Stock Arrival avec l'identifiant {{ param }} a été supprimé",
+      "created": "Une nouvelle entrée de stock a été créée avec l'identifiant {{ param }}",
+      "updated": "L'entrée de stock avec l'identifiant {{ param }} a été mise à jour",
+      "deleted": "L'entrée de stock avec l'identifiant {{ param }} a été supprimée",
       "delete": {
-        "question": "Êtes-vous certain de vouloir supprimer le Stock Arrival {{ id }} ?"
+        "question": "Êtes-vous sûr de vouloir supprimer l'entrée de stock {{ id }} ?"
       },
       "detail": {
-        "title": "Stock Arrival"
+        "title": "Entrée de stock"
       },
       "id": "ID",
-      "barcode": "Barcode",
-      "quantity": "Quantity",
-      "amount": "Amount",
+      "barcode": "Code-barres",
+      "quantity": "Quantité",
+      "amount": "Montant",
       "date": "Date",
-      "product": "Product"
+      "product": "Produit"
     }
   }
 }

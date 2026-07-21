@@ -4,28 +4,31 @@
       "title": "Utilisateurs",
       "refreshListLabel": "Actualiser la liste",
       "createLabel": "Créer un nouvel utilisateur",
-      "createOrEditLabel": "Créer ou éditer un utilisateur"
+      "createOrEditLabel": "Créer ou modifier un utilisateur",
+      "notFound": "Aucun utilisateur trouvé"
     },
-    "created": "L'utilisateur {{ param }} a été créé.",
-    "updated": "L'utilisateur {{ param }} a été mis à jour.",
-    "deleted": "L'utilisateur {{ param }} a été supprimé.",
+    "created": "Un nouvel utilisateur a été créé avec l'identifiant {{ param }}",
+    "updated": "L'utilisateur avec l'identifiant {{ param }} a été mis à jour",
+    "deleted": "L'utilisateur avec l'identifiant {{ param }} a été supprimé",
     "delete": {
-      "question": "Êtes-vous certain de vouloir supprimer l'utilisateur {{ login }} ?"
+      "question": "Êtes-vous sûr de vouloir supprimer l'utilisateur {{ login }} ?"
     },
     "detail": {
       "title": "Utilisateur"
     },
-    "login": "Login",
+    "id": "ID",
+    "login": "Nom d'utilisateur",
     "firstName": "Prénom",
     "lastName": "Nom",
-    "email": "Email",
+    "email": "Adresse e-mail",
+    "imageUrl": "Photo de profil",
     "activated": "Activé",
     "deactivated": "Désactivé",
-    "profiles": "Droits",
+    "profiles": "Profils",
     "langKey": "Langue",
     "createdBy": "Créé par",
-    "createdDate": "Créé le",
+    "createdDate": "Date de création",
     "lastModifiedBy": "Modifié par",
-    "lastModifiedDate": "Modifié le"
+    "lastModifiedDate": "Date de modification"
   }
 }

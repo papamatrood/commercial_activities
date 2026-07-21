@@ -2,26 +2,26 @@
   "commercialActivitiesApp": {
     "cashCollection": {
       "home": {
-        "title": "CashCollections",
+        "title": "Encaissements",
         "refreshListLabel": "Actualiser la liste",
-        "createLabel": "Créer un nouveau Cash Collection",
-        "createOrEditLabel": "Créer ou éditer un Cash Collection",
-        "notFound": "Aucun Cash Collection trouvé"
+        "createLabel": "Créer un nouvel encaissement",
+        "createOrEditLabel": "Créer ou modifier un encaissement",
+        "notFound": "Aucun encaissement trouvé"
       },
-      "created": "Un nouveau Cash Collection a été créé avec l'identifiant {{ param }}",
-      "updated": "Le Cash Collection avec l'identifiant {{ param }} a été mis à jour",
-      "deleted": "Le Cash Collection avec l'identifiant {{ param }} a été supprimé",
+      "created": "Un nouvel encaissement a été créé avec l'identifiant {{ param }}",
+      "updated": "L'encaissement avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "L'encaissement avec l'identifiant {{ param }} a été supprimé",
       "delete": {
-        "question": "Êtes-vous certain de vouloir supprimer le Cash Collection {{ id }} ?"
+        "question": "Êtes-vous sûr de vouloir supprimer l'encaissement {{ id }} ?"
       },
       "detail": {
-        "title": "Cash Collection"
+        "title": "Encaissement"
       },
       "id": "ID",
       "date": "Date",
-      "amount": "Amount",
-      "company": "Company",
-      "user": "User"
+      "amount": "Montant",
+      "company": "Entreprise",
+      "user": "Utilisateur"
     }
   }
 }

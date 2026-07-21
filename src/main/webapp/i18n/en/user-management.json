@@ -2,14 +2,14 @@
   "userManagement": {
     "home": {
       "title": "Users",
-      "refreshListLabel": "Refresh list",
-      "createLabel": "Create a new user",
-      "createOrEditLabel": "Create or edit a user",
-      "notFound": "No user found"
+      "refreshListLabel": "Refresh List",
+      "createLabel": "Create a New User",
+      "createOrEditLabel": "Create or Edit a User",
+      "notFound": "No Users Found"
     },
-    "created": "A new user is created with identifier {{ param }}",
-    "updated": "A user is updated with identifier {{ param }}",
-    "deleted": "A user is deleted with identifier {{ param }}",
+    "created": "A new user has been created with identifier {{ param }}",
+    "updated": "The user with identifier {{ param }} has been updated",
+    "deleted": "The user with identifier {{ param }} has been deleted",
     "delete": {
       "question": "Are you sure you want to delete user {{ login }}?"
     },
@@ -17,18 +17,18 @@
       "title": "User"
     },
     "id": "ID",
-    "login": "Login",
-    "firstName": "First name",
-    "lastName": "Last name",
+    "login": "Username",
+    "firstName": "First Name",
+    "lastName": "Last Name",
     "email": "Email",
-    "imageUrl": "Image",
+    "imageUrl": "Profile Picture",
     "activated": "Activated",
     "deactivated": "Deactivated",
-    "profiles": "Profiles",
+    "profiles": "Roles",
     "langKey": "Language",
-    "createdBy": "Created by",
-    "createdDate": "Created date",
-    "lastModifiedBy": "Modified by",
-    "lastModifiedDate": "Modified date"
+    "createdBy": "Created By",
+    "createdDate": "Created Date",
+    "lastModifiedBy": "Last Modified By",
+    "lastModifiedDate": "Last Modified Date"
   }
 }

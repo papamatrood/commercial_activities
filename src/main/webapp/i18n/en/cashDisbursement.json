@@ -3,16 +3,16 @@
     "cashDisbursement": {
       "home": {
         "title": "Cash Disbursements",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Create a new Cash Disbursement",
-        "createOrEditLabel": "Create or edit a Cash Disbursement",
-        "notFound": "No Cash Disbursements found"
+        "refreshListLabel": "Refresh List",
+        "createLabel": "Create a New Cash Disbursement",
+        "createOrEditLabel": "Create or Edit a Cash Disbursement",
+        "notFound": "No Cash Disbursements Found"
       },
-      "created": "A new Cash Disbursement is created with identifier {{ param }}",
-      "updated": "A Cash Disbursement is updated with identifier {{ param }}",
-      "deleted": "A Cash Disbursement is deleted with identifier {{ param }}",
+      "created": "A new Cash Disbursement has been created with identifier {{ param }}",
+      "updated": "The Cash Disbursement with identifier {{ param }} has been updated",
+      "deleted": "The Cash Disbursement with identifier {{ param }} has been deleted",
       "delete": {
-        "question": "Are you sure you want to delete Cash Disbursement {{ id }}?"
+        "question": "Are you sure you want to delete the Cash Disbursement {{ id }}?"
       },
       "detail": {
         "title": "Cash Disbursement"

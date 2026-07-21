@@ -2,26 +2,26 @@
   "commercialActivitiesApp": {
     "company": {
       "home": {
-        "title": "Companies",
+        "title": "Entreprises",
         "refreshListLabel": "Actualiser la liste",
-        "createLabel": "Créer un nouveau Company",
-        "createOrEditLabel": "Créer ou éditer un Company",
-        "notFound": "Aucun Company trouvé"
+        "createLabel": "Créer une nouvelle entreprise",
+        "createOrEditLabel": "Créer ou modifier une entreprise",
+        "notFound": "Aucune entreprise trouvée"
       },
-      "created": "Un nouveau Company a été créé avec l'identifiant {{ param }}",
-      "updated": "Le Company avec l'identifiant {{ param }} a été mis à jour",
-      "deleted": "Le Company avec l'identifiant {{ param }} a été supprimé",
+      "created": "Une nouvelle entreprise a été créée avec l'identifiant {{ param }}",
+      "updated": "L'entreprise avec l'identifiant {{ param }} a été mise à jour",
+      "deleted": "L'entreprise avec l'identifiant {{ param }} a été supprimée",
       "delete": {
-        "question": "Êtes-vous certain de vouloir supprimer le Company {{ id }} ?"
+        "question": "Êtes-vous sûr de vouloir supprimer l'entreprise {{ id }} ?"
       },
       "detail": {
-        "title": "Company"
+        "title": "Entreprise"
       },
       "id": "ID",
-      "name": "Name",
-      "location": "Location",
-      "creationDate": "Creation Date",
-      "status": "Status"
+      "name": "Nom",
+      "location": "Localité",
+      "creationDate": "Date de création",
+      "status": "Statut"
     }
   }
 }

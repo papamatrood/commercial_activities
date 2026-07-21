@@ -2,9 +2,9 @@
   "commercialActivitiesApp": {
     "AppUserTypeEnum": {
       "null": "",
-      "SUPER_ADMIN": "SUPER_ADMIN",
-      "COMPANY_ADMIN": "COMPANY_ADMIN",
-      "USER": "USER"
+      "SUPER_ADMIN": "Super Administrator",
+      "COMPANY_ADMIN": "Company Administrator",
+      "USER": "User"
     }
   }
 }

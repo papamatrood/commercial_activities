@@ -2,7 +2,7 @@
   "health": {
     "title": "Diagnostics",
     "refresh.button": "Rafraîchir",
-    "stacktrace": "Stacktrace",
+    "stacktrace": "Trace de la pile",
     "details": {
       "details": "Détails",
       "properties": "Propriétés",
@@ -13,9 +13,9 @@
     "indicator": {
       "diskSpace": "Espace disque",
       "ssl": "SSL",
-      "mail": "Email",
-      "livenessState": "Liveness state",
-      "readinessState": "Readiness state",
+      "mail": "E-mail",
+      "livenessState": "État de disponibilité (Liveness)",
+      "readinessState": "État de préparation (Readiness)",
       "ping": "Application",
       "db": "Base de données"
     },
@@ -26,8 +26,8 @@
     "status": {
       "UNKNOWN": "INCONNU",
       "UP": "DISPONIBLE",
-      "OUT_OF_SERVICE": "OUT_OF_SERVICE",
-      "DOWN": "HORS SERVICE"
+      "OUT_OF_SERVICE": "HORS SERVICE",
+      "DOWN": "INDISPONIBLE"
     }
   }
 }

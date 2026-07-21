@@ -1,0 +1,148 @@
+import type { SidebarSection } from './sidebar-item.model';
+
+export const SIDEBAR_SECTIONS: SidebarSection[] = [
+  {
+    id: 'accounts',
+    icon: 'users-cog',
+    translationKey: 'global.menu.sections.accounts',
+    defaultLabel: 'Comptes & Droits',
+    items: [
+      {
+        route: '/app-user',
+        icon: 'user',
+        translationKey: 'global.menu.entities.appUser',
+        defaultLabel: 'App User',
+        permissionKey: 'canManageUsers',
+      },
+      {
+        route: '/company',
+        icon: 'building',
+        translationKey: 'global.menu.entities.company',
+        defaultLabel: 'Company',
+        permissionKey: 'canManageCompany',
+      },
+      {
+        route: '/company-subscription',
+        icon: 'file-invoice-dollar',
+        translationKey: 'global.menu.entities.companySubscription',
+        defaultLabel: 'Company Subscription',
+        permissionKey: 'canManageCompany',
+      },
+      {
+        route: '/permission',
+        icon: 'key',
+        translationKey: 'global.menu.entities.permission',
+        defaultLabel: 'Permission',
+        permissionKey: 'canManageUsers',
+      },
+    ],
+  },
+  {
+    id: 'catalog',
+    icon: 'boxes-stacked',
+    translationKey: 'global.menu.sections.catalog',
+    defaultLabel: 'Catalogue',
+    items: [
+      {
+        route: '/product',
+        icon: 'tags',
+        translationKey: 'global.menu.entities.product',
+        defaultLabel: 'Product',
+        permissionKey: 'canManageProducts',
+      },
+      {
+        route: '/supplier',
+        icon: 'truck-field',
+        translationKey: 'global.menu.entities.supplier',
+        defaultLabel: 'Supplier',
+        permissionKey: 'canManageProducts',
+      },
+      {
+        route: '/stock-arrival',
+        icon: 'dolly',
+        translationKey: 'global.menu.entities.stockArrival',
+        defaultLabel: 'Stock Arrival',
+        permissionKey: 'canManageProducts',
+      },
+    ],
+  },
+  {
+    id: 'sales',
+    icon: 'cart-shopping',
+    translationKey: 'global.menu.sections.sales',
+    defaultLabel: 'Ventes',
+    items: [
+      {
+        route: '/sale',
+        icon: 'receipt',
+        translationKey: 'global.menu.entities.sale',
+        defaultLabel: 'Sale',
+        permissionKey: 'canRegisterSales',
+      },
+      {
+        route: '/sale-line',
+        icon: 'list',
+        translationKey: 'global.menu.entities.saleLine',
+        defaultLabel: 'Sale Line',
+        permissionKey: 'canRegisterSales',
+      },
+      {
+        route: '/debt',
+        icon: 'hand-holding-dollar',
+        translationKey: 'global.menu.entities.debt',
+        defaultLabel: 'Debt',
+        permissionKey: 'canRegisterSales',
+      },
+      {
+        route: '/debt-payment',
+        icon: 'money-check-dollar',
+        translationKey: 'global.menu.entities.debtPayment',
+        defaultLabel: 'Debt Payment',
+        permissionKey: 'canRegisterSales',
+      },
+    ],
+  },
+  {
+    id: 'cashier',
+    icon: 'cash-register',
+    translationKey: 'global.menu.sections.cashier',
+    defaultLabel: 'Caisse',
+    items: [
+      {
+        route: '/cash-collection',
+        icon: 'vault',
+        translationKey: 'global.menu.entities.cashCollection',
+        defaultLabel: 'Cash Collection',
+        permissionKey: 'canManageCashCollection',
+      },
+      {
+        route: '/cash-disbursement',
+        icon: 'money-bill-transfer',
+        translationKey: 'global.menu.entities.cashDisbursement',
+        defaultLabel: 'Cash Disbursement',
+        permissionKey: 'canManageCashDisbursement',
+      },
+    ],
+  },
+  {
+    id: 'administration',
+    icon: 'shield-halved',
+    translationKey: 'global.menu.admin.main',
+    defaultLabel: 'Administration',
+    authorities: ['ROLE_ADMIN'],
+    items: [
+      { route: '/authority', icon: 'asterisk', translationKey: 'global.menu.entities.adminAuthority', defaultLabel: 'Authority' },
+      { route: '/user-management', icon: 'users', translationKey: 'userManagement.home.title', defaultLabel: 'User Management' },
+      { route: '/admin/metrics', icon: 'tachometer-alt', translationKey: 'global.menu.admin.metrics', defaultLabel: 'Métriques' },
+      { route: '/admin/health', icon: 'heart', translationKey: 'global.menu.admin.health', defaultLabel: 'Diagnostics' },
+      {
+        route: '/admin/configuration',
+        icon: 'cogs',
+        translationKey: 'global.menu.admin.configuration',
+        defaultLabel: 'Configuration',
+      },
+      { route: '/admin/logs', icon: 'tasks', translationKey: 'global.menu.admin.logs', defaultLabel: 'Logs' },
+      { route: '/admin/docs', icon: 'book', translationKey: 'global.menu.admin.apidocs', defaultLabel: 'API' },
+    ],
+  },
+];

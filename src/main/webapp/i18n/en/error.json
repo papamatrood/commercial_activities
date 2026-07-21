@@ -1,14 +1,14 @@
 {
   "error": {
-    "title": "Error page!",
+    "title": "Error",
     "http": {
-      "400": "Bad request.",
+      "400": "Bad Request.",
       "403": "You are not authorized to access this page.",
-      "404": "The page does not exist.",
-      "405": "The HTTP verb you used is not supported for this URL.",
-      "500": "Internal server error."
+      "404": "The requested page could not be found.",
+      "405": "The HTTP method used is not supported for this URL.",
+      "500": "An internal server error has occurred."
     },
-    "concurrencyFailure": "Another user modified this data at the same time as you. Your changes were rejected.",
-    "validation": "Validation error on the server."
+    "concurrencyFailure": "This data was modified by another user while you were editing it. Your changes have been rejected.",
+    "validation": "A validation error occurred on the server."
   }
 }

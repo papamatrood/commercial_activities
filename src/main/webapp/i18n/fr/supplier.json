@@ -2,23 +2,23 @@
   "commercialActivitiesApp": {
     "supplier": {
       "home": {
-        "title": "Suppliers",
+        "title": "Fournisseurs",
         "refreshListLabel": "Actualiser la liste",
-        "createLabel": "Créer un nouveau Supplier",
-        "createOrEditLabel": "Créer ou éditer un Supplier",
-        "notFound": "Aucun Supplier trouvé"
+        "createLabel": "Créer un nouveau fournisseur",
+        "createOrEditLabel": "Créer ou modifier un fournisseur",
+        "notFound": "Aucun fournisseur trouvé"
       },
-      "created": "Un nouveau Supplier a été créé avec l'identifiant {{ param }}",
-      "updated": "Le Supplier avec l'identifiant {{ param }} a été mis à jour",
-      "deleted": "Le Supplier avec l'identifiant {{ param }} a été supprimé",
+      "created": "Un nouveau fournisseur a été créé avec l'identifiant {{ param }}",
+      "updated": "Le fournisseur avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le fournisseur avec l'identifiant {{ param }} a été supprimé",
       "delete": {
-        "question": "Êtes-vous certain de vouloir supprimer le Supplier {{ id }} ?"
+        "question": "Êtes-vous sûr de vouloir supprimer le fournisseur {{ id }} ?"
       },
       "detail": {
-        "title": "Supplier"
+        "title": "Fournisseur"
       },
       "id": "ID",
-      "name": "Name",
+      "name": "Nom",
       "contact": "Contact"
     }
   }

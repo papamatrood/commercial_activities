@@ -11,6 +11,7 @@ import { LANGUAGES } from 'app/config/language.constants';
 import { AccountService } from 'app/core/auth/account.service';
 import { StateStorageService } from 'app/core/auth/state-storage.service';
 import { ProfileService } from 'app/layouts/profiles/profile.service';
+import LayoutStateService from 'app/layouts/layout-state.service';
 import { LoginService } from 'app/login/login.service';
 import HasAnyAuthorityDirective from 'app/shared/auth/has-any-authority.directive';
 import { TranslateDirective } from 'app/shared/language';
@@ -44,6 +45,7 @@ export default class Navbar implements OnInit {
   readonly openAPIEnabled = signal(false);
   readonly version: string;
   readonly account = inject(AccountService).account;
+  readonly layoutState = inject(LayoutStateService);
 
   private readonly loginService = inject(LoginService);
   private readonly translateService = inject(TranslateService);

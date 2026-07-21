@@ -1,0 +1,38 @@
+<aside id="app-sidebar" class="sidebar" [class.sidebar--collapsed]="layoutState.isSidebarCollapsed()">
+  <div class="sidebar-brand">
+    <span class="sidebar-brand-mark">GC</span>
+    <span class="sidebar-brand-name" jhiTranslate="global.title">CommercialActivities</span>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      <fa-icon icon="home" [fixedWidth]="true" />
+      <span class="sidebar-link-label" jhiTranslate="global.menu.home">Accueil</span>
+    </a>
+
+    @for (section of sections; track section.id) {
+    @if (isSectionVisible(section.authorities)) {
+    <div class="sidebar-section">
+      <button type="button" class="sidebar-section-header" (click)="toggleSection(section.id)">
+        <fa-icon [icon]="section.icon" [fixedWidth]="true" />
+        <span class="sidebar-link-label" [jhiTranslate]="section.translationKey">{{ section.defaultLabel }}</span>
+        <fa-icon class="sidebar-caret" [icon]="isSectionCollapsed(section.id) ? 'chevron-right' : 'chevron-down'" />
+      </button>
+
+      @if (!isSectionCollapsed(section.id)) {
+      <div class="sidebar-section-items">
+        @for (item of section.items; track item.route) {
+        @if (isItemVisible(item) && (item.route !== '/admin/docs' || openApiEnabled())) {
+        <a class="sidebar-link" [routerLink]="item.route" routerLinkActive="active">
+          <fa-icon [icon]="item.icon" [fixedWidth]="true" />
+          <span class="sidebar-link-label" [jhiTranslate]="item.translationKey">{{ item.defaultLabel }}</span>
+        </a>
+        }
+        }
+      </div>
+      }
+    </div>
+    }
+    }
+  </nav>
+</aside>

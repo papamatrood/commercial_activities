@@ -24,6 +24,33 @@ Navbar
 }
 
 /* ==========================================================================
+Sidebar toggle button
+========================================================================== */
+.sidebar-toggler {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-right: 0.75rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: $navbar-dark-color;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+
+  &:hover,
+  &:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: $navbar-dark-hover-color;
+    outline: none;
+  }
+}
+
+/* ==========================================================================
 Logo styles
 ========================================================================== */
 .logo-img {

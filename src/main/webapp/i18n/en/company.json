@@ -3,16 +3,16 @@
     "company": {
       "home": {
         "title": "Companies",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Create a new Company",
-        "createOrEditLabel": "Create or edit a Company",
-        "notFound": "No Companies found"
+        "refreshListLabel": "Refresh List",
+        "createLabel": "Create a New Company",
+        "createOrEditLabel": "Create or Edit a Company",
+        "notFound": "No Companies Found"
       },
-      "created": "A new Company is created with identifier {{ param }}",
-      "updated": "A Company is updated with identifier {{ param }}",
-      "deleted": "A Company is deleted with identifier {{ param }}",
+      "created": "A new Company has been created with identifier {{ param }}",
+      "updated": "The Company with identifier {{ param }} has been updated",
+      "deleted": "The Company with identifier {{ param }} has been deleted",
       "delete": {
-        "question": "Are you sure you want to delete Company {{ id }}?"
+        "question": "Are you sure you want to delete the Company {{ id }}?"
       },
       "detail": {
         "title": "Company"

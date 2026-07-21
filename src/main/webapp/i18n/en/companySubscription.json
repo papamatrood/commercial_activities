@@ -3,22 +3,22 @@
     "companySubscription": {
       "home": {
         "title": "Company Subscriptions",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Create a new Company Subscription",
-        "createOrEditLabel": "Create or edit a Company Subscription",
-        "notFound": "No Company Subscriptions found"
+        "refreshListLabel": "Refresh List",
+        "createLabel": "Create a New Company Subscription",
+        "createOrEditLabel": "Create or Edit a Company Subscription",
+        "notFound": "No Company Subscriptions Found"
       },
-      "created": "A new Company Subscription is created with identifier {{ param }}",
-      "updated": "A Company Subscription is updated with identifier {{ param }}",
-      "deleted": "A Company Subscription is deleted with identifier {{ param }}",
+      "created": "A new Company Subscription has been created with identifier {{ param }}",
+      "updated": "The Company Subscription with identifier {{ param }} has been updated",
+      "deleted": "The Company Subscription with identifier {{ param }} has been deleted",
       "delete": {
-        "question": "Are you sure you want to delete Company Subscription {{ id }}?"
+        "question": "Are you sure you want to delete the Company Subscription {{ id }}?"
       },
       "detail": {
         "title": "Company Subscription"
       },
       "id": "ID",
-      "type": "Type",
+      "type": "Subscription Type",
       "startDate": "Start Date",
       "endDate": "End Date",
       "status": "Status",

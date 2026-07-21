@@ -1,14 +1,14 @@
 {
   "error": {
-    "title": "Page d'erreur !",
+    "title": "Erreur",
     "http": {
-      "400": "Mauvaise requête.",
-      "403": "Vous n'avez pas les droits pour accéder à cette page.",
-      "404": "La page n'existe pas.",
-      "405": "Le verbe HTTP que vous avez utilisé n'est pas reconnu par cet URL.",
-      "500": "Erreur interne du serveur."
+      "400": "Requête invalide.",
+      "403": "Vous n'êtes pas autorisé à accéder à cette page.",
+      "404": "La page demandée est introuvable.",
+      "405": "La méthode HTTP utilisée n'est pas prise en charge pour cette URL.",
+      "500": "Une erreur interne du serveur s'est produite."
     },
-    "concurrencyFailure": "Un autre utilisateur a modifié ces données en même temps que vous. Vos changements n'ont pas été sauvegardés.",
-    "validation": "Erreur de validation côté serveur."
+    "concurrencyFailure": "Ces données ont été modifiées par un autre utilisateur pendant votre édition. Vos modifications ont été rejetées.",
+    "validation": "Une erreur de validation est survenue sur le serveur."
   }
 }

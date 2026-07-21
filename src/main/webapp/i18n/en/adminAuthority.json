@@ -3,14 +3,14 @@
     "adminAuthority": {
       "home": {
         "title": "Authorities",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Create a new Authority",
-        "createOrEditLabel": "Create or edit a Authority",
-        "notFound": "No Authorities found"
+        "refreshListLabel": "Refresh List",
+        "createLabel": "Create a New Authority",
+        "createOrEditLabel": "Create or Edit an Authority",
+        "notFound": "No Authorities Found"
       },
-      "created": "A new Authority is created with identifier {{ param }}",
-      "updated": "A Authority is updated with identifier {{ param }}",
-      "deleted": "A Authority is deleted with identifier {{ param }}",
+      "created": "A new Authority has been created with identifier {{ param }}",
+      "updated": "The Authority with identifier {{ param }} has been updated",
+      "deleted": "The Authority with identifier {{ param }} has been deleted",
       "delete": {
         "question": "Are you sure you want to delete Authority {{ id }}?"
       },

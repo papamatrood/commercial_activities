@@ -5,6 +5,7 @@ import com.commercial.activities.repository.UserRepository;
 import com.commercial.activities.security.SecurityUtils;
 import com.commercial.activities.service.MailService;
 import com.commercial.activities.service.UserService;
+import com.commercial.activities.service.AppUserService;
 import com.commercial.activities.service.dto.AdminUserDTO;
 import com.commercial.activities.service.dto.PasswordChangeDTO;
 import com.commercial.activities.web.rest.errors.*;
@@ -48,17 +49,37 @@ public class AccountResource {
 
     private final PasswordEncoder passwordEncoder;
 
+    private final AppUserService appUserService; // nouveau champ
+
     public AccountResource(
         UserRepository userRepository,
         UserService userService,
         MailService mailService,
-        PasswordEncoder passwordEncoder
+        PasswordEncoder passwordEncoder,
+        AppUserService appUserService // nouveau paramètre
     ) {
         this.userRepository = userRepository;
         this.userService = userService;
         this.mailService = mailService;
         this.passwordEncoder = passwordEncoder;
+        this.appUserService = appUserService;
     }
+
+    
+/**
+ * {@code GET  /account/permissions} : récupère les droits de l'AppUser
+ * lié à l'utilisateur actuellement connecté, pour la sidebar Angular.
+ */
+@GetMapping("/account/permissions")
+public Map<String, Boolean> getAccountPermissions() {
+    LOG.debug("REST request to get account permissions");
+    String login = SecurityUtils.getCurrentUserLogin().orElseThrow(() ->
+        new AccountResourceException("Current user login not found")
+    );
+    return appUserService
+        .findPermissionFlagsByUserLogin(login)
+        .orElseThrow(() -> new AccountResourceException("No AppUser linked to this account"));
+}
 
     /**
      * {@code POST  /register} : register the user.

@@ -3,16 +3,16 @@
     "cashCollection": {
       "home": {
         "title": "Cash Collections",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Create a new Cash Collection",
-        "createOrEditLabel": "Create or edit a Cash Collection",
-        "notFound": "No Cash Collections found"
+        "refreshListLabel": "Refresh List",
+        "createLabel": "Create a New Cash Collection",
+        "createOrEditLabel": "Create or Edit a Cash Collection",
+        "notFound": "No Cash Collections Found"
       },
-      "created": "A new Cash Collection is created with identifier {{ param }}",
-      "updated": "A Cash Collection is updated with identifier {{ param }}",
-      "deleted": "A Cash Collection is deleted with identifier {{ param }}",
+      "created": "A new Cash Collection has been created with identifier {{ param }}",
+      "updated": "The Cash Collection with identifier {{ param }} has been updated",
+      "deleted": "The Cash Collection with identifier {{ param }} has been deleted",
       "delete": {
-        "question": "Are you sure you want to delete Cash Collection {{ id }}?"
+        "question": "Are you sure you want to delete the Cash Collection {{ id }}?"
       },
       "detail": {
         "title": "Cash Collection"

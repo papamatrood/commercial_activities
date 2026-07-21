@@ -1,5 +1,15 @@
-<nav data-cy="navbar" class="navbar navbar-dark navbar-expand-md bg-dark">
+<nav data-cy="navbar" class="navbar navbar-dark navbar-expand-md bg-dark topbar">
   <div class="container-fluid">
+    <a
+      class="navbar-toggler sidebar-toggler"
+      href="javascript:void(0);"
+      aria-controls="app-sidebar"
+      aria-label="Toggle sidebar"
+      data-cy="sidebarToggle"
+      (click)="layoutState.toggleSidebar()"
+    >
+      <fa-icon icon="bars" />
+    </a>
     <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
       <span class="logo-img"></span>
       <span class="navbar-title" jhiTranslate="global.title">CommercialActivities</span>

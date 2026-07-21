@@ -1,6 +1,6 @@
 {
   "global": {
-    "title": "CommercialActivities",
+    "title": "Commercial Activities",
     "browsehappy": "You are using an <strong>outdated</strong> browser. Please <a href=\"https://browsehappy.com/?locale=en\">upgrade your browser</a> to improve your experience.",
     "menu": {
       "home": "Home",
@@ -44,52 +44,58 @@
         "database": "Database",
         "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
       },
-      "language": "Language"
+      "language": "Language",
+      "sections": {
+        "accounts": "Accounts & Permissions",
+        "catalog": "Catalog",
+        "sales": "Sales",
+        "cashier": "Cashier"
+      }
     },
     "form": {
-      "username.label": "Username",
-      "username.placeholder": "Your username",
+      "username.label": "Phone number",
+      "username.placeholder": "Your phone number",
       "currentpassword.label": "Current password",
       "currentpassword.placeholder": "Current password",
       "newpassword.label": "New password",
       "newpassword.placeholder": "New password",
-      "confirmpassword.label": "New password confirmation",
-      "confirmpassword.placeholder": "Confirm the new password",
+      "confirmpassword.label": "Confirm new password",
+      "confirmpassword.placeholder": "Confirm your new password",
       "email.label": "Email",
       "email.placeholder": "Your email"
     },
     "messages": {
       "info": {
         "authenticated": {
-          "prefix": "If you want to ",
+          "prefix": "If you'd like to ",
           "link": "sign in",
-          "suffix": ", you can try the default accounts:<br/>- Administrator (login=\"admin\" and password=\"admin\") <br/>- User (login=\"user\" and password=\"user\")."
+          "suffix": ", you can try the default accounts:<br/>- Administrator (login=\"admin\", password=\"admin\") <br/>- User (login=\"user\", password=\"user\")."
         },
         "register": {
-          "noaccount": "You don't have an account yet?",
-          "link": "Register a new account"
+          "noaccount": "Don't have an account yet?",
+          "link": "Create a new account"
         }
       },
       "error": {
-        "dontmatch": "The password and its confirmation do not match!"
+        "dontmatch": "Password and confirmation do not match!"
       },
       "validate": {
         "newpassword": {
-          "required": "Your password is required.",
-          "minlength": "Your password is required to be at least 4 characters.",
-          "maxlength": "Your password cannot be longer than 50 characters.",
+          "required": "A password is required.",
+          "minlength": "Your password must be at least 4 characters long.",
+          "maxlength": "Your password cannot exceed 50 characters.",
           "strength": "Password strength:"
         },
         "confirmpassword": {
-          "required": "Your confirmation password is required.",
-          "minlength": "Your confirmation password is required to be at least 4 characters.",
-          "maxlength": "Your confirmation password cannot be longer than 50 characters."
+          "required": "Please confirm your password.",
+          "minlength": "The confirmation must be at least 4 characters long.",
+          "maxlength": "The confirmation cannot exceed 50 characters."
         },
         "email": {
-          "required": "Your email is required.",
-          "invalid": "Your email is invalid.",
-          "minlength": "Your email is required to be at least 5 characters.",
-          "maxlength": "Your email cannot be longer than 50 characters."
+          "required": "An email is required.",
+          "invalid": "This email is invalid.",
+          "minlength": "Your email must be at least 5 characters long.",
+          "maxlength": "Your email cannot exceed 50 characters."
         }
       }
     },
@@ -103,7 +109,7 @@
   },
   "entity": {
     "action": {
-      "addblob": "Add blob",
+      "addblob": "Add file",
       "addimage": "Add image",
       "back": "Back",
       "cancel": "Cancel",
@@ -119,23 +125,23 @@
       "value": "Value"
     },
     "delete": {
-      "title": "Confirm delete operation"
+      "title": "Confirm deletion"
     },
     "validation": {
       "required": "This field is required.",
-      "minlength": "This field is required to be at least {{ min }} characters.",
-      "maxlength": "This field cannot be longer than {{ max }} characters.",
-      "min": "This field should be at least {{ min }}.",
-      "max": "This field cannot be more than {{ max }}.",
-      "minbytes": "This field should be at least {{ min }} bytes.",
-      "maxbytes": "This field cannot be more than {{ max }} bytes.",
-      "pattern": "This field should follow pattern for {{ pattern }}.",
-      "number": "This field should be a number.",
-      "datetimelocal": "This field should be a date and time.",
-      "patternLogin": "This field can only contain letters, digits and e-mail addresses."
+      "minlength": "This field must be at least {{ min }} characters long.",
+      "maxlength": "This field cannot exceed {{ max }} characters.",
+      "min": "This field must be at least {{ min }}.",
+      "max": "This field cannot exceed {{ max }}.",
+      "minbytes": "This field must be at least {{ min }} bytes.",
+      "maxbytes": "This field cannot exceed {{ max }} bytes.",
+      "pattern": "This field must match the expected pattern for {{ pattern }}.",
+      "number": "This field must be a number.",
+      "datetimelocal": "This field must be a date and time.",
+      "patternLogin": "This field can only contain letters, digits, and email addresses."
     },
     "filters": {
-      "set": "Following filters are set",
+      "set": "Active filters",
       "clear": "Clear filter",
       "clearAll": "Clear all filters"
     }
@@ -145,16 +151,16 @@
     "server.not.reachable": "Server not reachable",
     "url.not.found": "Not found",
     "NotNull": "Field {{ fieldName }} cannot be empty!",
-    "Size": "Field {{ fieldName }} does not meet min/max size requirements!",
-    "userexists": "Login name already used!",
-    "emailexists": "Email is already in use!",
+    "Size": "Field {{ fieldName }} does not meet the min/max size requirements!",
+    "userexists": "This phone number is already in use!",
+    "emailexists": "This email is already in use!",
     "idexists": "A new {{ entityName }} cannot already have an ID",
     "idnull": "Invalid ID",
     "idinvalid": "Invalid ID",
-    "idnotfound": "ID cannot be found",
+    "idnotfound": "ID not found",
     "file": {
       "could.not.extract": "Could not extract file",
-      "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
+      "not.image": "Expected an image file but received \"{{ fileType }}\""
     }
   },
   "footer": "This is your footer"

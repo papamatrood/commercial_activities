@@ -1,27 +1,27 @@
 {
   "global": {
-    "title": "CommercialActivities",
-    "browsehappy": "Vous utilisez un <strong>ancien</strong> navigateur. Veuillez <a href=\"https://browsehappy.com/?locale=fr\">mettre à jour votre navigateur</a> pour une meilleure expérience.",
+    "title": "Gestion des activités commerciales",
+    "browsehappy": "Vous utilisez un navigateur <strong>obsolète</strong>. Veuillez <a href=\"https://browsehappy.com/?locale=fr\">mettre à jour votre navigateur</a> pour améliorer votre expérience.",
     "menu": {
       "home": "Accueil",
-      "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
+      "jhipster-needle-menu-add-element": "JHipster ajoutera d'autres entrées de menu ici (ne pas traduire !)",
       "entities": {
         "main": "Entités",
-        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
-        "adminAuthority": "Authority",
-        "appUser": "App User",
-        "company": "Company",
-        "companySubscription": "Company Subscription",
+        "jhipster-needle-menu-add-entry": "JHipster ajoutera d'autres entités ici (ne pas traduire !)",
+        "adminAuthority": "Autorité",
+        "appUser": "Utilisateur",
+        "company": "Entreprise",
+        "companySubscription": "Abonnement entreprise",
         "permission": "Permission",
-        "supplier": "Supplier",
-        "product": "Product",
-        "stockArrival": "Stock Arrival",
-        "sale": "Sale",
-        "saleLine": "Sale Line",
-        "debt": "Debt",
-        "debtPayment": "Debt Payment",
-        "cashCollection": "Cash Collection",
-        "cashDisbursement": "Cash Disbursement"
+        "supplier": "Fournisseur",
+        "product": "Produit",
+        "stockArrival": "Arrivage de stock",
+        "sale": "Vente",
+        "saleLine": "Ligne de vente",
+        "debt": "Dette",
+        "debtPayment": "Paiement de dette",
+        "cashCollection": "Encaissement",
+        "cashDisbursement": "Décaissement"
       },
       "account": {
         "main": "Compte",
@@ -42,54 +42,60 @@
         "logs": "Logs",
         "apidocs": "API",
         "database": "Base de données",
-        "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
+        "jhipster-needle-menu-add-admin-element": "JHipster ajoutera d'autres éléments au menu admin ici (ne pas traduire !)"
       },
-      "language": "Langue"
+      "language": "Langue",
+      "sections": {
+        "accounts": "Comptes et droits",
+        "catalog": "Catalogue",
+        "sales": "Ventes",
+        "cashier": "Caisse"
+      }
     },
     "form": {
-      "username.label": "Nom d'utilisateur",
-      "username.placeholder": "Votre nom d'utilisateur",
+      "username.label": "Numéro de téléphone",
+      "username.placeholder": "Votre numéro de téléphone",
       "currentpassword.label": "Mot de passe actuel",
       "currentpassword.placeholder": "Mot de passe actuel",
       "newpassword.label": "Nouveau mot de passe",
       "newpassword.placeholder": "Nouveau mot de passe",
       "confirmpassword.label": "Confirmation du nouveau mot de passe",
-      "confirmpassword.placeholder": "Confirmation du nouveau mot de passe",
+      "confirmpassword.placeholder": "Confirmez votre nouveau mot de passe",
       "email.label": "Email",
       "email.placeholder": "Votre email"
     },
     "messages": {
       "info": {
         "authenticated": {
-          "prefix": "Si vous voulez vous ",
-          "link": "connecter",
-          "suffix": ", vous pouvez utiliser les comptes par défaut : <br/> - Administrateur (nom d'utilisateur=\"admin\" et mot de passe =\"admin\") <br/> - Utilisateur (nom d'utilisateur=\"user\" et mot de passe =\"user\")."
+          "prefix": "Si vous souhaitez ",
+          "link": "vous connecter",
+          "suffix": ", vous pouvez essayer les comptes par défaut :<br/>- Administrateur (identifiant=\"admin\" et mot de passe=\"admin\") <br/>- Utilisateur (identifiant=\"user\" et mot de passe=\"user\")."
         },
         "register": {
           "noaccount": "Vous n'avez pas encore de compte ?",
-          "link": "Créer un compte"
+          "link": "Créer un nouveau compte"
         }
       },
       "error": {
-        "dontmatch": "Le nouveau mot de passe et sa confirmation ne sont pas égaux !"
+        "dontmatch": "Le mot de passe et sa confirmation ne correspondent pas !"
       },
       "validate": {
         "newpassword": {
-          "required": "Votre mot de passe est requis.",
-          "minlength": "Votre mot de passe doit comporter au moins 4 caractères.",
-          "maxlength": "Votre mot de passe ne doit pas comporter plus de 50 caractères.",
-          "strength": "Robustesse du mot de passe :"
+          "required": "Un mot de passe est requis.",
+          "minlength": "Votre mot de passe doit contenir au moins 4 caractères.",
+          "maxlength": "Votre mot de passe ne peut pas dépasser 50 caractères.",
+          "strength": "Force du mot de passe :"
         },
         "confirmpassword": {
-          "required": "Votre confirmation du mot de passe est requise.",
-          "minlength": "Votre confirmation du mot de passe doit comporter au moins 4 caractères.",
-          "maxlength": "Votre confirmation du mot de passe ne doit pas comporter plus de 50 caractères."
+          "required": "Veuillez confirmer votre mot de passe.",
+          "minlength": "La confirmation doit contenir au moins 4 caractères.",
+          "maxlength": "La confirmation ne peut pas dépasser 50 caractères."
         },
         "email": {
-          "required": "Votre email est requis.",
-          "minlength": "Votre email doit comporter au moins 5 caractères.",
-          "maxlength": "Votre email ne doit pas comporter plus de 50 caractères.",
-          "invalid": "Votre email n'est pas valide."
+          "required": "Un email est requis.",
+          "invalid": "Cet email est invalide.",
+          "minlength": "Votre email doit contenir au moins 5 caractères.",
+          "maxlength": "Votre email ne peut pas dépasser 50 caractères."
         }
       }
     },
@@ -99,18 +105,18 @@
     "ribbon": {
       "dev": "Développement"
     },
-    "item-count": "Affichage {{first}} - {{second}} de {{total}} items."
+    "item-count": "Affichage de {{first}} - {{second}} sur {{total}} éléments."
   },
   "entity": {
     "action": {
-      "addblob": "Ajouter blob",
-      "addimage": "Ajouter image",
+      "addblob": "Ajouter un fichier",
+      "addimage": "Ajouter une image",
       "back": "Retour",
       "cancel": "Annuler",
-      "edit": "Editer",
       "delete": "Supprimer",
+      "edit": "Éditer",
       "open": "Ouvrir",
-      "save": "Sauvegarder",
+      "save": "Enregistrer",
       "view": "Voir",
       "show": "Afficher {{otherEntity}}"
     },
@@ -119,23 +125,23 @@
       "value": "Valeur"
     },
     "delete": {
-      "title": "Confirmation de suppression"
+      "title": "Confirmer la suppression"
     },
     "validation": {
-      "required": "Ce champ est obligatoire.",
-      "minlength": "Ce champ doit faire au moins {{min}} caractères.",
-      "maxlength": "Ce champ doit faire au maximum {{max}} caractères.",
-      "min": "Ce champ doit être supérieur à {{min}}.",
-      "max": "Ce champ doit être inférieur à {{max}}.",
-      "minbytes": "Ce champ doit être supérieur à {{min}} bytes.",
-      "maxbytes": "Ce champ doit être inférieur à {{max}} bytes.",
-      "pattern": "Ce champ doit suivre l'expression régulière {{pattern}}.",
+      "required": "Ce champ est requis.",
+      "minlength": "Ce champ doit contenir au moins {{ min }} caractères.",
+      "maxlength": "Ce champ ne peut pas dépasser {{ max }} caractères.",
+      "min": "Ce champ doit être au moins {{ min }}.",
+      "max": "Ce champ ne peut pas dépasser {{ max }}.",
+      "minbytes": "Ce champ doit faire au moins {{ min }} octets.",
+      "maxbytes": "Ce champ ne peut pas dépasser {{ max }} octets.",
+      "pattern": "Ce champ doit respecter le format attendu pour {{ pattern }}.",
       "number": "Ce champ doit être un nombre.",
       "datetimelocal": "Ce champ doit être une date et une heure.",
-      "patternLogin": "Ce champ ne peut contenir que des lettres, des chiffres ou des adresses e-mail."
+      "patternLogin": "Ce champ ne peut contenir que des lettres, des chiffres et des adresses email."
     },
     "filters": {
-      "set": "Les filtres suivants sont définis",
+      "set": "Filtres actifs",
       "clear": "Effacer le filtre",
       "clearAll": "Effacer tous les filtres"
     }
@@ -143,18 +149,18 @@
   "error": {
     "internalServerError": "Erreur interne du serveur",
     "server.not.reachable": "Serveur inaccessible",
-    "url.not.found": "Non trouvé",
-    "NotNull": "Le champ {{fieldName}} ne peut pas être vide !",
-    "Size": "Le champ {{fieldName}} ne respecte pas les critères minimum et maximum !",
-    "userexists": "Login déjà utilisé !",
-    "emailexists": "Email déjà utilisé !",
-    "idexists": "Une nouvelle entité {{entityName}} ne peut pas avoir d'identifiant !",
-    "idnull": "Identifiant invalide",
-    "idinvalid": "Identifiant invalide",
-    "idnotfound": "Identifiant introuvable",
+    "url.not.found": "Introuvable",
+    "NotNull": "Le champ {{ fieldName }} ne peut pas être vide !",
+    "Size": "Le champ {{ fieldName }} ne respecte pas les contraintes de taille min/max !",
+    "userexists": "Ce numéro de téléphone est déjà utilisé !",
+    "emailexists": "Cet email est déjà utilisé !",
+    "idexists": "Un nouveau {{ entityName }} ne peut pas déjà avoir un ID",
+    "idnull": "ID invalide",
+    "idinvalid": "ID invalide",
+    "idnotfound": "ID introuvable",
     "file": {
       "could.not.extract": "Impossible d'extraire le fichier",
-      "not.image": "Le fichier doit être une image et non du type \"{{ fileType }}\""
+      "not.image": "Le fichier devait être une image mais son type est « {{ fileType }} »"
     }
   },
   "footer": "Ceci est votre pied de page"

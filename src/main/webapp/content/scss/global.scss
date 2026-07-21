@@ -16,7 +16,7 @@ h4 {
 
 /* Increase contrast of links to get 100% on Lighthouse Accessibility Audit. Override this color if you want to change the link color, or use a Bootswatch theme */
 a {
-  color: #533f03;
+  color: $primary;
   font-weight: bold;
 }
 
@@ -31,7 +31,7 @@ a:not([href]):not([tabindex]):hover.dropdown-item {
 }
 
 a:hover {
-  color: #533f03;
+  color: $link-hover-color;
   /* make sure browsers use the pointer cursor for anchors, even with no href */
   cursor: pointer;
 }
@@ -70,6 +70,8 @@ Generic styles
   padding: 1.5%;
   margin-top: 20px;
   border: none;
+  border-radius: $border-radius-lg;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
 }
 
 .error {
@@ -233,4 +235,48 @@ angular-cli removes postcss-rtl processed inline css, processed rules must be ad
     }
   }
 }
+
+/* ==========================================================================
+App shell layout — left sidebar + top bar
+========================================================================== */
+.app-shell {
+  display: flex;
+  align-items: stretch;
+  min-height: 100vh;
+}
+
+.app-main {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-content {
+  flex: 1 1 auto;
+  padding-top: 1.25rem;
+}
+
+/* On small screens the collapsed sidebar slides fully off-canvas instead of
+   shrinking to an icon rail, and the toggle button brings it back on top of
+   the content. */
+@media screen and (max-width: 767.98px) {
+  .app-shell {
+    position: relative;
+  }
+
+  .app-shell .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1030;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateX(0);
+  }
+
+  .app-shell--collapsed .sidebar {
+    transform: translateX(-100%);
+  }
+}
+
 /* jhipster-needle-scss-add-main JHipster will add new css style */

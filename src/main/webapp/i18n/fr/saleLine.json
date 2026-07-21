@@ -2,28 +2,28 @@
   "commercialActivitiesApp": {
     "saleLine": {
       "home": {
-        "title": "SaleLines",
+        "title": "Lignes de vente",
         "refreshListLabel": "Actualiser la liste",
-        "createLabel": "Créer un nouveau Sale Line",
-        "createOrEditLabel": "Créer ou éditer un Sale Line",
-        "notFound": "Aucun Sale Line trouvé"
+        "createLabel": "Créer une nouvelle ligne de vente",
+        "createOrEditLabel": "Créer ou modifier une ligne de vente",
+        "notFound": "Aucune ligne de vente trouvée"
       },
-      "created": "Un nouveau Sale Line a été créé avec l'identifiant {{ param }}",
-      "updated": "Le Sale Line avec l'identifiant {{ param }} a été mis à jour",
-      "deleted": "Le Sale Line avec l'identifiant {{ param }} a été supprimé",
+      "created": "Une nouvelle ligne de vente a été créée avec l'identifiant {{ param }}",
+      "updated": "La ligne de vente avec l'identifiant {{ param }} a été mise à jour",
+      "deleted": "La ligne de vente avec l'identifiant {{ param }} a été supprimée",
       "delete": {
-        "question": "Êtes-vous certain de vouloir supprimer le Sale Line {{ id }} ?"
+        "question": "Êtes-vous sûr de vouloir supprimer la ligne de vente {{ id }} ?"
       },
       "detail": {
-        "title": "Sale Line"
+        "title": "Ligne de vente"
       },
       "id": "ID",
-      "barcode": "Barcode",
-      "quantity": "Quantity",
-      "unitPrice": "Unit Price",
-      "totalPrice": "Total Price",
-      "sale": "Sale",
-      "product": "Product"
+      "barcode": "Code-barres",
+      "quantity": "Quantité",
+      "unitPrice": "Prix unitaire",
+      "totalPrice": "Prix total",
+      "sale": "Vente",
+      "product": "Produit"
     }
   }
 }

@@ -2,26 +2,26 @@
   "commercialActivitiesApp": {
     "debtPayment": {
       "home": {
-        "title": "DebtPayments",
+        "title": "Paiements de dettes",
         "refreshListLabel": "Actualiser la liste",
-        "createLabel": "Créer un nouveau Debt Payment",
-        "createOrEditLabel": "Créer ou éditer un Debt Payment",
-        "notFound": "Aucun Debt Payment trouvé"
+        "createLabel": "Créer un nouveau paiement de dette",
+        "createOrEditLabel": "Créer ou modifier un paiement de dette",
+        "notFound": "Aucun paiement de dette trouvé"
       },
-      "created": "Un nouveau Debt Payment a été créé avec l'identifiant {{ param }}",
-      "updated": "Le Debt Payment avec l'identifiant {{ param }} a été mis à jour",
-      "deleted": "Le Debt Payment avec l'identifiant {{ param }} a été supprimé",
+      "created": "Un nouveau paiement de dette a été créé avec l'identifiant {{ param }}",
+      "updated": "Le paiement de dette avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le paiement de dette avec l'identifiant {{ param }} a été supprimé",
       "delete": {
-        "question": "Êtes-vous certain de vouloir supprimer le Debt Payment {{ id }} ?"
+        "question": "Êtes-vous sûr de vouloir supprimer le paiement de dette {{ id }} ?"
       },
       "detail": {
-        "title": "Debt Payment"
+        "title": "Paiement de dette"
       },
       "id": "ID",
-      "amountPaid": "Amount Paid",
-      "remainingAmount": "Remaining Amount",
+      "amountPaid": "Montant payé",
+      "remainingAmount": "Montant restant",
       "date": "Date",
-      "debt": "Debt"
+      "debt": "Dette"
     }
   }
 }

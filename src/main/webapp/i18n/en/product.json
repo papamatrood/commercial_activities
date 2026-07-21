@@ -3,14 +3,14 @@
     "product": {
       "home": {
         "title": "Products",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Create a new Product",
-        "createOrEditLabel": "Create or edit a Product",
-        "notFound": "No Products found"
+        "refreshListLabel": "Refresh List",
+        "createLabel": "Create a New Product",
+        "createOrEditLabel": "Create or Edit a Product",
+        "notFound": "No Products Found"
       },
-      "created": "A new Product is created with identifier {{ param }}",
-      "updated": "A Product is updated with identifier {{ param }}",
-      "deleted": "A Product is deleted with identifier {{ param }}",
+      "created": "A new Product has been created with identifier {{ param }}",
+      "updated": "The Product with identifier {{ param }} has been updated",
+      "deleted": "The Product with identifier {{ param }} has been deleted",
       "delete": {
         "question": "Are you sure you want to delete Product {{ id }}?"
       },

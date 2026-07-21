@@ -2,28 +2,28 @@
   "commercialActivitiesApp": {
     "debt": {
       "home": {
-        "title": "Debts",
+        "title": "Dettes",
         "refreshListLabel": "Actualiser la liste",
-        "createLabel": "Créer un nouveau Debt",
-        "createOrEditLabel": "Créer ou éditer un Debt",
-        "notFound": "Aucun Debt trouvé"
+        "createLabel": "Créer une nouvelle dette",
+        "createOrEditLabel": "Créer ou modifier une dette",
+        "notFound": "Aucune dette trouvée"
       },
-      "created": "Un nouveau Debt a été créé avec l'identifiant {{ param }}",
-      "updated": "Le Debt avec l'identifiant {{ param }} a été mis à jour",
-      "deleted": "Le Debt avec l'identifiant {{ param }} a été supprimé",
+      "created": "Une nouvelle dette a été créée avec l'identifiant {{ param }}",
+      "updated": "La dette avec l'identifiant {{ param }} a été mise à jour",
+      "deleted": "La dette avec l'identifiant {{ param }} a été supprimée",
       "delete": {
-        "question": "Êtes-vous certain de vouloir supprimer le Debt {{ id }} ?"
+        "question": "Êtes-vous sûr de vouloir supprimer la dette {{ id }} ?"
       },
       "detail": {
-        "title": "Debt"
+        "title": "Dette"
       },
       "id": "ID",
-      "totalAmount": "Total Amount",
-      "amountPaid": "Amount Paid",
-      "remainingAmount": "Remaining Amount",
+      "totalAmount": "Montant total",
+      "amountPaid": "Montant payé",
+      "remainingAmount": "Montant restant",
       "date": "Date",
-      "company": "Company",
-      "sale": "Sale"
+      "company": "Entreprise",
+      "sale": "Vente"
     }
   }
 }

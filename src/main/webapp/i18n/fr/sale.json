@@ -2,31 +2,31 @@
   "commercialActivitiesApp": {
     "sale": {
       "home": {
-        "title": "Sales",
+        "title": "Ventes",
         "refreshListLabel": "Actualiser la liste",
-        "createLabel": "Créer un nouveau Sale",
-        "createOrEditLabel": "Créer ou éditer un Sale",
-        "notFound": "Aucun Sale trouvé"
+        "createLabel": "Créer une nouvelle vente",
+        "createOrEditLabel": "Créer ou modifier une vente",
+        "notFound": "Aucune vente trouvée"
       },
-      "created": "Un nouveau Sale a été créé avec l'identifiant {{ param }}",
-      "updated": "Le Sale avec l'identifiant {{ param }} a été mis à jour",
-      "deleted": "Le Sale avec l'identifiant {{ param }} a été supprimé",
+      "created": "Une nouvelle vente a été créée avec l'identifiant {{ param }}",
+      "updated": "La vente avec l'identifiant {{ param }} a été mise à jour",
+      "deleted": "La vente avec l'identifiant {{ param }} a été supprimée",
       "delete": {
-        "question": "Êtes-vous certain de vouloir supprimer le Sale {{ id }} ?"
+        "question": "Êtes-vous sûr de vouloir supprimer la vente {{ id }} ?"
       },
       "detail": {
-        "title": "Sale"
+        "title": "Vente"
       },
       "id": "ID",
       "date": "Date",
-      "amountToPay": "Amount To Pay",
-      "amountPaid": "Amount Paid",
-      "remainingAmount": "Remaining Amount",
-      "customerName": "Customer Name",
-      "customerCompany": "Customer Company",
-      "customerContact": "Customer Contact",
-      "company": "Company",
-      "seller": "Seller"
+      "amountToPay": "Montant à payer",
+      "amountPaid": "Montant payé",
+      "remainingAmount": "Montant restant",
+      "customerName": "Nom du client",
+      "customerCompany": "Entreprise du client",
+      "customerContact": "Contact du client",
+      "company": "Entreprise",
+      "seller": "Vendeur"
     }
   }
 }

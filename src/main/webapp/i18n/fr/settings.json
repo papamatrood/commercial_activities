@@ -1,30 +1,30 @@
 {
   "settings": {
-    "title": "Profil de l'utilisateur [<strong>{{username}}</strong>]",
+    "title": "Paramètres de l'utilisateur <strong>{{username}}</strong>",
     "form": {
       "firstname": "Prénom",
-      "firstname.placeholder": "Votre prénom",
+      "firstname.placeholder": "Saisissez votre prénom",
       "lastname": "Nom",
-      "lastname.placeholder": "Votre nom",
+      "lastname.placeholder": "Saisissez votre nom",
       "language": "Langue",
-      "button": "Sauvegarder"
+      "button": "Enregistrer"
     },
     "messages": {
       "error": {
-        "fail": "<strong>Une erreur est survenue !</strong> Votre profil n'a pas été sauvegardé.",
-        "emailexists": "<strong>Cet email est déjà utilisé !</strong> Veuillez en choisir un autre."
+        "fail": "<strong>Une erreur est survenue !</strong> Les paramètres n'ont pas pu être enregistrés.",
+        "emailexists": "<strong>Cette adresse e-mail est déjà utilisée !</strong> Veuillez en choisir une autre."
       },
-      "success": "<strong>Votre profil a été sauvegardé !</strong>",
+      "success": "<strong>Vos paramètres ont été enregistrés avec succès !</strong>",
       "validate": {
         "firstname": {
-          "required": "Votre prénom est requis.",
-          "minlength": "Votre prénom doit comporter au moins un caractère.",
-          "maxlength": "Votre prénom ne doit pas comporter plus de 50 caractères."
+          "required": "Le prénom est obligatoire.",
+          "minlength": "Le prénom doit contenir au moins 1 caractère.",
+          "maxlength": "Le prénom ne peut pas dépasser 50 caractères."
         },
         "lastname": {
-          "required": "Votre nom est requis.",
-          "minlength": "Votre nom doit comporter au moins un caractère.",
-          "maxlength": "Votre nom ne doit pas comporter plus de 50 caractères."
+          "required": "Le nom est obligatoire.",
+          "minlength": "Le nom doit contenir au moins 1 caractère.",
+          "maxlength": "Le nom ne peut pas dépasser 50 caractères."
         }
       }
     }

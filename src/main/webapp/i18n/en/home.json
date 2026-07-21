@@ -1,19 +1,19 @@
 {
   "home": {
-    "title": "Welcome, Java Hipster!",
-    "subtitle": "This is your homepage",
+    "title": "Welcome!",
+    "subtitle": "Welcome to the Commercial Activities Management System.",
     "logged": {
-      "message": "You are logged in as user \"{{username}}\"."
+      "message": "You are signed in as \"{{username}}\"."
     },
-    "question": "If you have any questions on JHipster:",
+    "question": "Need help using the application?",
     "link": {
-      "homepage": "JHipster homepage",
-      "stackoverflow": "JHipster on Stack Overflow",
-      "bugtracker": "JHipster bug tracker",
-      "chat": "JHipster public chat room",
-      "follow": "follow @jhipster on Twitter"
+      "homepage": "Application Homepage",
+      "stackoverflow": "Support Center",
+      "bugtracker": "Report an Issue",
+      "chat": "Community Discussion",
+      "follow": "Follow us on social media"
     },
-    "like": "If you like JHipster, don't forget to give us a star on",
+    "like": "Thank you for using our application.",
     "github": "GitHub"
   }
 }

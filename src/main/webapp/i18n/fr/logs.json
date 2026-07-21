@@ -1,7 +1,7 @@
 {
   "logs": {
-    "title": "Logs",
-    "nbloggers": "Total de {{ total }} \"loggers\".",
+    "title": "Journaux",
+    "nbloggers": "{{ total }} enregistreurs (loggers) sont disponibles.",
     "filter": "Filtrer",
     "table": {
       "name": "Nom",

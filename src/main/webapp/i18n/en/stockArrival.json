@@ -3,14 +3,14 @@
     "stockArrival": {
       "home": {
         "title": "Stock Arrivals",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Create a new Stock Arrival",
-        "createOrEditLabel": "Create or edit a Stock Arrival",
-        "notFound": "No Stock Arrivals found"
+        "refreshListLabel": "Refresh List",
+        "createLabel": "Create a New Stock Arrival",
+        "createOrEditLabel": "Create or Edit a Stock Arrival",
+        "notFound": "No Stock Arrivals Found"
       },
-      "created": "A new Stock Arrival is created with identifier {{ param }}",
-      "updated": "A Stock Arrival is updated with identifier {{ param }}",
-      "deleted": "A Stock Arrival is deleted with identifier {{ param }}",
+      "created": "A new Stock Arrival has been created with identifier {{ param }}",
+      "updated": "The Stock Arrival with identifier {{ param }} has been updated",
+      "deleted": "The Stock Arrival with identifier {{ param }} has been deleted",
       "delete": {
         "question": "Are you sure you want to delete Stock Arrival {{ id }}?"
       },

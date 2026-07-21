@@ -2,30 +2,30 @@
   "commercialActivitiesApp": {
     "appUser": {
       "home": {
-        "title": "AppUsers",
-        "refreshListLabel": "Actualiser la liste",
-        "createLabel": "Créer un nouveau App User",
-        "createOrEditLabel": "Créer ou éditer un App User",
-        "notFound": "Aucun App User trouvé"
+        "title": "Application Users",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Application User",
+        "createOrEditLabel": "Create or edit an Application User",
+        "notFound": "No Application Users found"
       },
-      "created": "Un nouveau App User a été créé avec l'identifiant {{ param }}",
-      "updated": "Le App User avec l'identifiant {{ param }} a été mis à jour",
-      "deleted": "Le App User avec l'identifiant {{ param }} a été supprimé",
+      "created": "A new Application User has been created with identifier {{ param }}",
+      "updated": "The Application User with identifier {{ param }} has been updated",
+      "deleted": "The Application User with identifier {{ param }} has been deleted",
       "delete": {
-        "question": "Êtes-vous certain de vouloir supprimer le App User {{ id }} ?"
+        "question": "Are you sure you want to delete the Application User {{ id }}?"
       },
       "detail": {
-        "title": "App User"
+        "title": "Application User"
       },
       "id": "ID",
       "phoneNumber": "Phone Number",
-      "type": "Type",
-      "birthDate": "Birth Date",
-      "birthPlace": "Birth Place",
+      "type": "User Type",
+      "birthDate": "Date of Birth",
+      "birthPlace": "Place of Birth",
       "gender": "Gender",
       "disabled": "Disabled",
       "disabledDate": "Disabled Date",
-      "user": "User",
+      "user": "User Account",
       "company": "Company",
       "permission": "Permission"
     }

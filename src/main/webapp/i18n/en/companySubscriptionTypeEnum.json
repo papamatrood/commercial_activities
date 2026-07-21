@@ -2,10 +2,10 @@
   "commercialActivitiesApp": {
     "CompanySubscriptionTypeEnum": {
       "null": "",
-      "MONTHLY": "MONTHLY",
-      "QUARTERLY": "QUARTERLY",
-      "HALF_YEARLY": "HALF_YEARLY",
-      "YEARLY": "YEARLY"
+      "MONTHLY": "Monthly",
+      "QUARTERLY": "Quarterly",
+      "HALF_YEARLY": "Half-Yearly",
+      "YEARLY": "Yearly"
     }
   }
 }

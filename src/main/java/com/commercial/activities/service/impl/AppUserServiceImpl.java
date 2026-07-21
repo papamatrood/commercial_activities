@@ -1,11 +1,16 @@
 package com.commercial.activities.service.impl;
 
 import com.commercial.activities.domain.AppUser;
+import com.commercial.activities.domain.Permission;
 import com.commercial.activities.repository.AppUserRepository;
 import com.commercial.activities.service.AppUserService;
 import com.commercial.activities.service.dto.AppUserDTO;
 import com.commercial.activities.service.mapper.AppUserMapper;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -77,5 +82,28 @@ public class AppUserServiceImpl implements AppUserService {
     public void delete(Long id) {
         LOG.debug("Request to delete AppUser : {}", id);
         appUserRepository.deleteById(id);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Optional<Map<String, Boolean>> findPermissionFlagsByUserLogin(String login) {
+        LOG.debug("Request to get permission flags for user login : {}", login);
+
+        return appUserRepository
+            .findOneByUser_Login(login)
+            .map(appUser -> {
+                Set<String> codes = appUser.getPermissions().stream().map(Permission::getCode).collect(Collectors.toSet());
+
+                Map<String, Boolean> permissions = new HashMap<>();
+                permissions.put("canManageUsers", codes.contains("MANAGE_USERS"));
+                permissions.put("canManageCompany", codes.contains("MANAGE_COMPANY"));
+                permissions.put("canManageProducts", codes.contains("MANAGE_PRODUCTS"));
+                permissions.put("canRegisterSales", codes.contains("REGISTER_SALE"));
+                permissions.put("canManageCashCollection", codes.contains("MANAGE_CASH_COLLECTION"));
+                permissions.put("canManageCashDisbursement", codes.contains("MANAGE_CASH_DISBURSEMENT"));
+                permissions.put("canViewReports", codes.contains("VIEW_REPORTS"));
+                permissions.put("canViewDashboard", codes.contains("VIEW_DASHBOARD"));
+                return permissions;
+            });
     }
 }

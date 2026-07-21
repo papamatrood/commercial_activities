@@ -4,23 +4,23 @@
       "home": {
         "title": "Permissions",
         "refreshListLabel": "Actualiser la liste",
-        "createLabel": "Créer un nouveau Permission",
-        "createOrEditLabel": "Créer ou éditer un Permission",
-        "notFound": "Aucun Permission trouvé"
+        "createLabel": "Créer une nouvelle permission",
+        "createOrEditLabel": "Créer ou modifier une permission",
+        "notFound": "Aucune permission trouvée"
       },
-      "created": "Un nouveau Permission a été créé avec l'identifiant {{ param }}",
-      "updated": "Le Permission avec l'identifiant {{ param }} a été mis à jour",
-      "deleted": "Le Permission avec l'identifiant {{ param }} a été supprimé",
+      "created": "Une nouvelle permission a été créée avec l'identifiant {{ param }}",
+      "updated": "La permission avec l'identifiant {{ param }} a été mise à jour",
+      "deleted": "La permission avec l'identifiant {{ param }} a été supprimée",
       "delete": {
-        "question": "Êtes-vous certain de vouloir supprimer le Permission {{ id }} ?"
+        "question": "Êtes-vous sûr de vouloir supprimer la permission {{ id }} ?"
       },
       "detail": {
         "title": "Permission"
       },
       "id": "ID",
       "code": "Code",
-      "label": "Label",
-      "appUser": "App User"
+      "label": "Libellé",
+      "appUser": "Utilisateur de l'application"
     }
   }
 }

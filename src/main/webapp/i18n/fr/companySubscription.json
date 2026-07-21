@@ -2,27 +2,27 @@
   "commercialActivitiesApp": {
     "companySubscription": {
       "home": {
-        "title": "CompanySubscriptions",
+        "title": "Abonnements des entreprises",
         "refreshListLabel": "Actualiser la liste",
-        "createLabel": "Créer un nouveau Company Subscription",
-        "createOrEditLabel": "Créer ou éditer un Company Subscription",
-        "notFound": "Aucun Company Subscription trouvé"
+        "createLabel": "Créer un nouvel abonnement d'entreprise",
+        "createOrEditLabel": "Créer ou modifier un abonnement d'entreprise",
+        "notFound": "Aucun abonnement d'entreprise trouvé"
       },
-      "created": "Un nouveau Company Subscription a été créé avec l'identifiant {{ param }}",
-      "updated": "Le Company Subscription avec l'identifiant {{ param }} a été mis à jour",
-      "deleted": "Le Company Subscription avec l'identifiant {{ param }} a été supprimé",
+      "created": "Un nouvel abonnement d'entreprise a été créé avec l'identifiant {{ param }}",
+      "updated": "L'abonnement d'entreprise avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "L'abonnement d'entreprise avec l'identifiant {{ param }} a été supprimé",
       "delete": {
-        "question": "Êtes-vous certain de vouloir supprimer le Company Subscription {{ id }} ?"
+        "question": "Êtes-vous sûr de vouloir supprimer l'abonnement d'entreprise {{ id }} ?"
       },
       "detail": {
-        "title": "Company Subscription"
+        "title": "Abonnement d'entreprise"
       },
       "id": "ID",
-      "type": "Type",
-      "startDate": "Start Date",
-      "endDate": "End Date",
-      "status": "Status",
-      "company": "Company"
+      "type": "Type d'abonnement",
+      "startDate": "Date de début",
+      "endDate": "Date de fin",
+      "status": "Statut",
+      "company": "Entreprise"
     }
   }
 }

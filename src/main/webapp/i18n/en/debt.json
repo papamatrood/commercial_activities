@@ -3,16 +3,16 @@
     "debt": {
       "home": {
         "title": "Debts",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Create a new Debt",
-        "createOrEditLabel": "Create or edit a Debt",
-        "notFound": "No Debts found"
+        "refreshListLabel": "Refresh List",
+        "createLabel": "Create a New Debt",
+        "createOrEditLabel": "Create or Edit a Debt",
+        "notFound": "No Debts Found"
       },
-      "created": "A new Debt is created with identifier {{ param }}",
-      "updated": "A Debt is updated with identifier {{ param }}",
-      "deleted": "A Debt is deleted with identifier {{ param }}",
+      "created": "A new Debt has been created with identifier {{ param }}",
+      "updated": "The Debt with identifier {{ param }} has been updated",
+      "deleted": "The Debt with identifier {{ param }} has been deleted",
       "delete": {
-        "question": "Are you sure you want to delete Debt {{ id }}?"
+        "question": "Are you sure you want to delete the Debt {{ id }}?"
       },
       "detail": {
         "title": "Debt"

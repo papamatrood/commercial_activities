@@ -3,14 +3,14 @@
     "permission": {
       "home": {
         "title": "Permissions",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "Create a new Permission",
-        "createOrEditLabel": "Create or edit a Permission",
-        "notFound": "No Permissions found"
+        "refreshListLabel": "Refresh List",
+        "createLabel": "Create a New Permission",
+        "createOrEditLabel": "Create or Edit a Permission",
+        "notFound": "No Permissions Found"
       },
-      "created": "A new Permission is created with identifier {{ param }}",
-      "updated": "A Permission is updated with identifier {{ param }}",
-      "deleted": "A Permission is deleted with identifier {{ param }}",
+      "created": "A new Permission has been created with identifier {{ param }}",
+      "updated": "The Permission with identifier {{ param }} has been updated",
+      "deleted": "The Permission with identifier {{ param }} has been deleted",
       "delete": {
         "question": "Are you sure you want to delete Permission {{ id }}?"
       },
@@ -20,7 +20,7 @@
       "id": "ID",
       "code": "Code",
       "label": "Label",
-      "appUser": "App User"
+      "appUser": "Application User"
     }
   }
 }
