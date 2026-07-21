@@ -17,6 +17,10 @@ const routes: Routes = [
     outlet: 'navbar',
   },
   {
+    path: 'modules',
+    loadChildren: () => import('./modules/modules.routes'),
+  },
+  {
     path: 'admin',
     data: {
       authorities: [Authority.ADMIN],

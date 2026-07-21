@@ -7,11 +7,6 @@ const routes: Routes = [
     loadChildren: () => import('./admin/authority/authority.routes'),
   },
   {
-    path: 'user-management',
-    data: { pageTitle: 'userManagement.home.title' },
-    loadChildren: () => import('./admin/user-management/user-management.routes'),
-  },
-  {
     path: 'app-user',
     data: { pageTitle: 'commercialActivitiesApp.appUser.home.title' },
     loadChildren: () => import('./app-user/app-user.routes'),
