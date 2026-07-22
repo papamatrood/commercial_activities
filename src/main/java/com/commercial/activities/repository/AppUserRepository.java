@@ -1,6 +1,7 @@
 package com.commercial.activities.repository;
 
 import com.commercial.activities.domain.AppUser;
+import com.commercial.activities.domain.enumeration.AppUserTypeEnum;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
@@ -31,4 +32,6 @@ public interface AppUserRepository
     }
 
     Optional<AppUser> findOneByUser_Login(String login);
+
+    Optional<AppUser> findFirstByCompany_IdAndTypeOrderByIdAsc(Long companyId, AppUserTypeEnum type);
 }

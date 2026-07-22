@@ -5,6 +5,8 @@ import { UserRouteAccessService } from 'app/core/auth/user-route-access.service'
 
 import CompanyResolve from 'app/entities/company/route/company-routing-resolve.service';
 
+import CompanyOwnerResolve from './route/company-owner-routing-resolve.service';
+
 const companyRoute: Routes = [
   {
     path: '',
@@ -26,7 +28,7 @@ const companyRoute: Routes = [
     path: 'new',
     loadComponent: () => import('./update/company-update').then(m => m.CompanyUpdate),
     resolve: {
-      company: CompanyResolve,
+      companyWithOwner: CompanyOwnerResolve,
     },
     canActivate: [UserRouteAccessService],
   },
@@ -34,7 +36,7 @@ const companyRoute: Routes = [
     path: ':id/edit',
     loadComponent: () => import('./update/company-update').then(m => m.CompanyUpdate),
     resolve: {
-      company: CompanyResolve,
+      companyWithOwner: CompanyOwnerResolve,
     },
     canActivate: [UserRouteAccessService],
   },

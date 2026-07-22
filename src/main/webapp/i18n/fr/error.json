@@ -9,6 +9,8 @@
       "500": "Une erreur interne du serveur s'est produite."
     },
     "concurrencyFailure": "Ces données ont été modifiées par un autre utilisateur pendant votre édition. Vos modifications ont été rejetées.",
-    "validation": "Une erreur de validation est survenue sur le serveur."
+    "validation": "Une erreur de validation est survenue sur le serveur.",
+    "userexists": "Ce login est déjà utilisé !",
+    "emailexists": "Cet email est déjà utilisé !"
   }
 }

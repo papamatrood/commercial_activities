@@ -8,28 +8,28 @@ export const SIDEBAR_SECTIONS: SidebarSection[] = [
     defaultLabel: 'Comptes & Droits',
     items: [
       {
-        route: '/app-user',
+        route: '/modules/app-user',
         icon: 'user',
         translationKey: 'global.menu.entities.appUser',
         defaultLabel: 'App User',
         permissionKey: 'canManageUsers',
       },
       {
-        route: '/company',
+        route: '/modules/company',
         icon: 'building',
         translationKey: 'global.menu.entities.company',
         defaultLabel: 'Company',
         permissionKey: 'canManageCompany',
       },
       {
-        route: '/company-subscription',
+        route: '/modules/company-subscription',
         icon: 'file-invoice-dollar',
         translationKey: 'global.menu.entities.companySubscription',
         defaultLabel: 'Company Subscription',
         permissionKey: 'canManageCompany',
       },
       {
-        route: '/permission',
+        route: '/modules/permission',
         icon: 'key',
         translationKey: 'global.menu.entities.permission',
         defaultLabel: 'Permission',
@@ -73,14 +73,14 @@ export const SIDEBAR_SECTIONS: SidebarSection[] = [
     defaultLabel: 'Ventes',
     items: [
       {
-        route: '/sale',
+        route: '/modules/sale',
         icon: 'receipt',
         translationKey: 'global.menu.entities.sale',
         defaultLabel: 'Sale',
         permissionKey: 'canRegisterSales',
       },
       {
-        route: '/sale-line',
+        route: '/modules/sale-line',
         icon: 'list',
         translationKey: 'global.menu.entities.saleLine',
         defaultLabel: 'Sale Line',
@@ -94,7 +94,7 @@ export const SIDEBAR_SECTIONS: SidebarSection[] = [
         permissionKey: 'canRegisterSales',
       },
       {
-        route: '/debt-payment',
+        route: '/modules/debt-payment',
         icon: 'money-check-dollar',
         translationKey: 'global.menu.entities.debtPayment',
         defaultLabel: 'Debt Payment',
@@ -109,14 +109,14 @@ export const SIDEBAR_SECTIONS: SidebarSection[] = [
     defaultLabel: 'Caisse',
     items: [
       {
-        route: '/cash-collection',
+        route: '/modules/cash-collection',
         icon: 'vault',
         translationKey: 'global.menu.entities.cashCollection',
         defaultLabel: 'Cash Collection',
         permissionKey: 'canManageCashCollection',
       },
       {
-        route: '/cash-disbursement',
+        route: '/modules/cash-disbursement',
         icon: 'money-bill-transfer',
         translationKey: 'global.menu.entities.cashDisbursement',
         defaultLabel: 'Cash Disbursement',

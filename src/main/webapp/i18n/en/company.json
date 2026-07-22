@@ -21,7 +21,25 @@
       "name": "Name",
       "location": "Location",
       "creationDate": "Creation Date",
-      "status": "Status"
+      "status": "Status",
+      "sections": {
+        "company": "Company information",
+        "owner": "Owner information"
+      },
+      "owner": {
+        "login": "Login",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "phoneNumber": "Phone Number",
+        "email": "Email",
+        "langKey": "Language",
+        "birthDate": "Date of Birth",
+        "birthPlace": "Place of Birth",
+        "gender": "Gender",
+        "type": "User Type",
+        "disabled": "Account Disabled",
+        "passwordHint": "Initial password: {{ password }}"
+      }
     }
   }
 }

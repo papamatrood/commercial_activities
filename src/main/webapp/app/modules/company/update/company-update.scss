@@ -1,0 +1,54 @@
+@import '../../../../content/scss/bootstrap-variables';
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+
+.company-update {
+  &__section {
+    background-color: #fff;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: $border-radius-lg;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $primary;
+
+    fa-icon {
+      color: $gesticom-green;
+    }
+  }
+
+  &__hint {
+    display: block;
+    color: $secondary;
+    margin-top: 0.25rem;
+  }
+
+  &__disabled {
+    margin-top: 0.5rem;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 767.98px) {
+  .company-update {
+    &__section {
+      padding: 1rem;
+    }
+  }
+}

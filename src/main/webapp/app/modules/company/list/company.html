@@ -12,7 +12,7 @@
         id="jh-create-entity"
         data-cy="entityCreateButton"
         class="btn btn-primary jh-create-entity create-company"
-        [routerLink]="['/company/new']"
+        [routerLink]="['/modules/company/new']"
       >
         <fa-icon icon="plus" />
         <span jhiTranslate="commercialActivitiesApp.company.home.createLabel">Créer un nouveau Company</span>
@@ -75,7 +75,7 @@
           @for (company of companies(); track trackId(company)) {
             <tr data-cy="entityTable">
               <td>
-                <a [routerLink]="['/company', company.id, 'view']">{{ company.id }}</a>
+                <a [routerLink]="['/modules/company', company.id, 'view']">{{ company.id }}</a>
               </td>
               <td>{{ company.name }}</td>
               <td>{{ company.location }}</td>
@@ -90,7 +90,7 @@
                     <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
                   </a>
 
-                  <a [routerLink]="['/company', company.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                  <a [routerLink]="['/modules/company', company.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
                     <fa-icon icon="pencil-alt" />
                     <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
                   </a>

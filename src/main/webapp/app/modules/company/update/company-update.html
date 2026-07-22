@@ -1,87 +1,295 @@
-<div class="d-flex justify-content-center">
-  <div class="col-8">
-    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-      <h2
-        id="jhi-company-heading"
-        data-cy="CompanyCreateUpdateHeading"
-        jhiTranslate="commercialActivitiesApp.company.home.createOrEditLabel"
-      >
-        Créer ou éditer un Company
-      </h2>
+<div class="company-update">
+  <div class="d-flex justify-content-center">
+    <div class="col-12 col-xl-10">
+      <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+        <h2
+          id="jhi-company-heading"
+          data-cy="CompanyCreateUpdateHeading"
+          jhiTranslate="commercialActivitiesApp.company.home.createOrEditLabel"
+        >
+          Créer ou éditer un Company
+        </h2>
 
-      <div>
         <jhi-alert-error />
 
-        @if (editForm.controls.id.value !== null) {
-          <div class="mb-3">
-            <label class="form-label" for="field_id" jhiTranslate="global.field.id">ID</label>
-            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        <div class="company-update__section" formGroupName="company">
+          <div class="company-update__section-header">
+            <fa-icon icon="building" />
+            <span jhiTranslate="commercialActivitiesApp.company.sections.company">Informations de l'entreprise</span>
           </div>
-        }
 
-        @let nameRef = editForm.get('name')!;
-        <div class="mb-3">
-          <label class="form-label" for="field_name" jhiTranslate="commercialActivitiesApp.company.name">Name</label>
-          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
-          @if (nameRef.invalid && (nameRef.dirty || nameRef.touched)) {
-            <div>
-              @if (nameRef.errors?.required) {
-                <small class="form-text text-danger" jhiTranslate="entity.validation.required">Ce champ est obligatoire.</small>
-              }
+          @if (editForm.controls.company.controls.id.value !== null) {
+            <div class="mb-3">
+              <label class="form-label" for="field_id" jhiTranslate="global.field.id">ID</label>
+              <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
             </div>
           }
-        </div>
 
-        <div class="mb-3">
-          <label class="form-label" for="field_location" jhiTranslate="commercialActivitiesApp.company.location">Location</label>
-          <input type="text" class="form-control" name="location" id="field_location" data-cy="location" formControlName="location" />
-        </div>
+          <div class="row">
+            @let nameRef = editForm.controls.company.controls.name;
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="field_name" jhiTranslate="commercialActivitiesApp.company.name">Name</label>
+              <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+              @if (nameRef.invalid && (nameRef.dirty || nameRef.touched)) {
+                <div>
+                  @if (nameRef.errors?.required) {
+                    <small class="form-text text-danger" jhiTranslate="entity.validation.required">Ce champ est obligatoire.</small>
+                  }
+                </div>
+              }
+            </div>
 
-        <div class="mb-3">
-          <label class="form-label" for="field_creationDate" jhiTranslate="commercialActivitiesApp.company.creationDate"
-            >Creation Date</label
-          >
-          <div class="d-flex">
-            <input
-              id="field_creationDate"
-              data-cy="creationDate"
-              type="datetime-local"
-              class="form-control"
-              name="creationDate"
-              formControlName="creationDate"
-              placeholder="YYYY-MM-DD HH:mm"
-            />
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="field_location" jhiTranslate="commercialActivitiesApp.company.location">Location</label>
+              <input type="text" class="form-control" name="location" id="field_location" data-cy="location" formControlName="location" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="field_creationDate" jhiTranslate="commercialActivitiesApp.company.creationDate"
+                >Creation Date</label
+              >
+              <input
+                id="field_creationDate"
+                data-cy="creationDate"
+                type="datetime-local"
+                class="form-control"
+                name="creationDate"
+                formControlName="creationDate"
+                placeholder="YYYY-MM-DD HH:mm"
+              />
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="field_status" jhiTranslate="commercialActivitiesApp.company.status">Status</label>
+              <select class="form-select" name="status" formControlName="status" id="field_status" data-cy="status">
+                <option [ngValue]="null">{{ 'commercialActivitiesApp.CompanyStatusEnum.null' | translate }}</option>
+                @for (companyStatusEnum of companyStatusEnumValues; track $index) {
+                  <option [value]="companyStatusEnum">
+                    {{ 'commercialActivitiesApp.CompanyStatusEnum.' + companyStatusEnum | translate }}
+                  </option>
+                }
+              </select>
+            </div>
           </div>
         </div>
 
-        <div class="mb-3">
-          <label class="form-label" for="field_status" jhiTranslate="commercialActivitiesApp.company.status">Status</label>
-          <select class="form-control" name="status" formControlName="status" id="field_status" data-cy="status">
-            <option [ngValue]="null">{{ 'commercialActivitiesApp.CompanyStatusEnum.null' | translate }}</option>
-            @for (companyStatusEnum of companyStatusEnumValues; track $index) {
-              <option [value]="companyStatusEnum">
-                {{ 'commercialActivitiesApp.CompanyStatusEnum.' + companyStatusEnum | translate }}
-              </option>
-            }
-          </select>
+        <div class="company-update__section" formGroupName="owner">
+          <div class="company-update__section-header">
+            <fa-icon icon="user" />
+            <span jhiTranslate="commercialActivitiesApp.company.sections.owner">Informations du propriétaire</span>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="field_ownerFirstName" jhiTranslate="commercialActivitiesApp.company.owner.firstName"
+                >First Name</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                name="ownerFirstName"
+                id="field_ownerFirstName"
+                data-cy="ownerFirstName"
+                formControlName="firstName"
+              />
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="field_ownerLastName" jhiTranslate="commercialActivitiesApp.company.owner.lastName"
+                >Last Name</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                name="ownerLastName"
+                id="field_ownerLastName"
+                data-cy="ownerLastName"
+                formControlName="lastName"
+              />
+            </div>
+          </div>
+
+          <div class="row">
+            @let loginRef = editForm.controls.owner.controls.login;
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="field_ownerLogin" jhiTranslate="commercialActivitiesApp.company.owner.login">Login</label>
+              <input
+                type="text"
+                class="form-control"
+                name="ownerLogin"
+                id="field_ownerLogin"
+                data-cy="ownerLogin"
+                formControlName="login"
+              />
+              @if (loginRef.invalid && (loginRef.dirty || loginRef.touched)) {
+                <div>
+                  @if (loginRef.errors?.required) {
+                    <small class="form-text text-danger" jhiTranslate="entity.validation.required">Ce champ est obligatoire.</small>
+                  }
+                </div>
+              }
+              @if (!companyWithOwner && passwordHint()) {
+                <small
+                  class="form-text company-update__hint"
+                  jhiTranslate="commercialActivitiesApp.company.owner.passwordHint"
+                  [translateValues]="{ password: passwordHint() }"
+                  >Mot de passe initial : {{ passwordHint() }}</small
+                >
+              }
+            </div>
+
+            @let phoneNumberRef = editForm.controls.owner.controls.phoneNumber;
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="field_ownerPhoneNumber" jhiTranslate="commercialActivitiesApp.company.owner.phoneNumber"
+                >Phone Number</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                name="ownerPhoneNumber"
+                id="field_ownerPhoneNumber"
+                data-cy="ownerPhoneNumber"
+                formControlName="phoneNumber"
+              />
+              @if (phoneNumberRef.invalid && (phoneNumberRef.dirty || phoneNumberRef.touched)) {
+                <div>
+                  @if (phoneNumberRef.errors?.required) {
+                    <small class="form-text text-danger" jhiTranslate="entity.validation.required">Ce champ est obligatoire.</small>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+
+          <div class="row">
+            @let emailRef = editForm.controls.owner.controls.email;
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="field_ownerEmail" jhiTranslate="commercialActivitiesApp.company.owner.email">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                name="ownerEmail"
+                id="field_ownerEmail"
+                data-cy="ownerEmail"
+                formControlName="email"
+              />
+              @if (emailRef.invalid && (emailRef.dirty || emailRef.touched)) {
+                <div>
+                  @if (emailRef.errors?.email) {
+                    <small class="form-text text-danger" jhiTranslate="global.messages.validate.email.invalid"
+                      >Votre email n'est pas valide.</small
+                    >
+                  }
+                </div>
+              }
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="field_ownerLangKey" jhiTranslate="commercialActivitiesApp.company.owner.langKey"
+                >Language</label
+              >
+              <select class="form-select" name="ownerLangKey" formControlName="langKey" id="field_ownerLangKey" data-cy="ownerLangKey">
+                @for (language of languages; track $index) {
+                  <option [value]="language">{{ language | findLanguageFromKey }}</option>
+                }
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="field_ownerBirthDate" jhiTranslate="commercialActivitiesApp.company.owner.birthDate"
+                >Birth Date</label
+              >
+              <input
+                id="field_ownerBirthDate"
+                data-cy="ownerBirthDate"
+                type="datetime-local"
+                class="form-control"
+                name="ownerBirthDate"
+                formControlName="birthDate"
+                placeholder="YYYY-MM-DD HH:mm"
+              />
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="field_ownerBirthPlace" jhiTranslate="commercialActivitiesApp.company.owner.birthPlace"
+                >Birth Place</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                name="ownerBirthPlace"
+                id="field_ownerBirthPlace"
+                data-cy="ownerBirthPlace"
+                formControlName="birthPlace"
+              />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="field_ownerGender" jhiTranslate="commercialActivitiesApp.company.owner.gender">Gender</label>
+              <select class="form-select" name="ownerGender" formControlName="gender" id="field_ownerGender" data-cy="ownerGender">
+                <option [ngValue]="null">{{ 'commercialActivitiesApp.GenderEnum.null' | translate }}</option>
+                @for (genderEnum of genderEnumValues; track $index) {
+                  <option [value]="genderEnum">{{ 'commercialActivitiesApp.GenderEnum.' + genderEnum | translate }}</option>
+                }
+              </select>
+            </div>
+
+            @let typeRef = editForm.controls.owner.controls.type;
+            <div class="col-md-6 mb-3">
+              <label class="form-label" for="field_ownerType" jhiTranslate="commercialActivitiesApp.company.owner.type">User Type</label>
+              <select class="form-select" name="ownerType" formControlName="type" id="field_ownerType" data-cy="ownerType">
+                <option [ngValue]="null">{{ 'commercialActivitiesApp.AppUserTypeEnum.null' | translate }}</option>
+                @for (appUserTypeEnum of appUserTypeEnumValues; track $index) {
+                  <option [value]="appUserTypeEnum">{{ 'commercialActivitiesApp.AppUserTypeEnum.' + appUserTypeEnum | translate }}</option>
+                }
+              </select>
+              @if (typeRef.invalid && (typeRef.dirty || typeRef.touched)) {
+                <div>
+                  @if (typeRef.errors?.required) {
+                    <small class="form-text text-danger" jhiTranslate="entity.validation.required">Ce champ est obligatoire.</small>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+
+          <div class="form-check company-update__disabled">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="ownerDisabled"
+              id="field_ownerDisabled"
+              data-cy="ownerDisabled"
+              formControlName="disabled"
+            />
+            <label class="form-check-label" for="field_ownerDisabled" jhiTranslate="commercialActivitiesApp.company.owner.disabled"
+              >Disabled</label
+            >
+          </div>
         </div>
-      </div>
 
-      <div>
-        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
-          <fa-icon icon="ban" />&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
-        </button>
+        <div class="company-update__actions">
+          <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+            <fa-icon icon="ban" />&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+          </button>
 
-        <button
-          type="submit"
-          id="save-entity"
-          data-cy="entityCreateSaveButton"
-          [disabled]="editForm.invalid || isSaving()"
-          class="btn btn-primary"
-        >
-          <fa-icon icon="save" />&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
-        </button>
-      </div>
-    </form>
+          <button
+            type="submit"
+            id="save-entity"
+            data-cy="entityCreateSaveButton"
+            [disabled]="editForm.invalid || isSaving()"
+            class="btn btn-primary"
+          >
+            <fa-icon icon="save" />&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>

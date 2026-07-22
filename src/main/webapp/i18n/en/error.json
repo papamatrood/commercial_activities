@@ -9,6 +9,8 @@
       "500": "An internal server error has occurred."
     },
     "concurrencyFailure": "This data was modified by another user while you were editing it. Your changes have been rejected.",
-    "validation": "A validation error occurred on the server."
+    "validation": "A validation error occurred on the server.",
+    "userexists": "This login is already in use!",
+    "emailexists": "This email is already in use!"
   }
 }

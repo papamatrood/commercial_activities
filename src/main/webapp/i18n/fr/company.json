@@ -21,7 +21,25 @@
       "name": "Nom",
       "location": "Localité",
       "creationDate": "Date de création",
-      "status": "Statut"
+      "status": "Statut",
+      "sections": {
+        "company": "Informations de l'entreprise",
+        "owner": "Informations du propriétaire"
+      },
+      "owner": {
+        "login": "Identifiant (login)",
+        "firstName": "Prénom",
+        "lastName": "Nom",
+        "phoneNumber": "Téléphone",
+        "email": "Email",
+        "langKey": "Langue",
+        "birthDate": "Date de naissance",
+        "birthPlace": "Lieu de naissance",
+        "gender": "Genre",
+        "type": "Type d'utilisateur",
+        "disabled": "Compte désactivé",
+        "passwordHint": "Mot de passe initial : {{ password }}"
+      }
     }
   }
 }
